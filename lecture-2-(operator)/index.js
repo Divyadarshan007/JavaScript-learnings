@@ -5,7 +5,7 @@ let d = "40";
 console.log(a + b);
 console.log("The sum is : " + (a + b));
 console.log("The sum is : " + (parseInt(c) + parseInt(d)));// parseInt to convert string into integer (same parseFloat)
-console.log(`The sum is : ${parseInt(c) + parseInt(d)}` );//template literalls or string interpolation
+console.log(`The sum is : ${parseInt(c) + parseInt(d)}`);//template literalls or string interpolation
 
 
 let fullname = prompt("Enter Full Name : ");
