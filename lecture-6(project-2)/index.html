@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <title>Document</title>
+    <style>
+        * {
+            color: #fff;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .container2 {
+            background-color: #212121;
+            padding: 1.6em;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        input::placeholder {
+            font-size: 18px;
+            opacity: 0.5 !important;
+        }
+    </style>
+</head>
+
+<body class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container2">
+        <h1>Form Validation</h1>
+        <form action="" id="form">
+
+            <div class="my-3">
+                <label class="mb-2" for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter Your Name ">
+            </div>
+            <div class="my-3">
+                <label class="mb-2" for="mail">Email</label>
+                <input class="form-control" type="email" id="mail" name="mail" placeholder="Enter Your Email ">
+            </div>
+            <div class="my-3">
+                <label class="mb-2" for="pass">Password</label>
+                <input class="form-control" type="password" id="pass" name="pass" placeholder="Enter Your password ">
+            </div>
+            <div>
+                <label class="mb-2" for="cpass">Confirm Password</label>
+                <input class="form-control" type="password" name="cpass" id="cpass"
+                    placeholder="Confirm Your password ">
+            </div>
+
+            <button type="submit" class="btn btn-primary my-4" id="sub">Submit</button>
+
+        </form>
+    </div>
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/sweetalert2@11.js"></script>
+    <!-- <script src="./assets/js/script.js"></script> -->
+    <script>
+        let nameEl = document.getElementById("name");
+        let mail = document.getElementById("mail");
+        let pass = document.getElementById("pass");
+        let cpass = document.getElementById("cpass");
+        let submit = document.getElementById("sub");
+        let form = document.getElementById("form");
+
+        $("#sub").on("click", function (e) {
+            e.preventDefault();
+
+            if (nameEl.value.trim() == "") {
+                Swal.fire({
+                    imageUrl:
+                        'https://media.tenor.com/unl1EqovjJcAAAAM/puneet-superstar-meme-acha-puneet.gif',
+                });
+                return;
+            }
+
+            if (mail.value.trim() == "") {
+                Swal.fire("Email is required!");
+                return;
+            }
+
+            if (pass.value.trim() == "" || cpass.value.trim() == "") {
+                Swal.fire("Password and confirmation password are required!");
+                return;
+            } else if (pass.value !== cpass.value) {
+                Swal.fire("Password and confirmation password do not match!");
+                return;
+            }
+
+            $(form).submit();
+        })
+    </script>
+</body>
+
+</html>
