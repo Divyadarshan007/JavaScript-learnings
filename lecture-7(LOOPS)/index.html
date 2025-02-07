@@ -14,7 +14,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        /* animation: change 1s linear infinite; */
+        animation: change 1s linear infinite;
     }
     .box2{
         width: 100px;
@@ -25,7 +25,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        /* animation: change2 1s linear infinite; */
+        animation: change2 1s linear infinite;
     }
     #container{
         display: flex;
@@ -66,19 +66,26 @@
     </div>
     <div>
         <input type="text" id="text" placeholder="write">
+        <button type="button" id="button">click</button>
     </div>
     <script src="./jquery-3.7.1.min.js"></script>
     <script>
+        $("#text").on("keydown", function() {
+        $("body").css("background-color", 
+            `rgba(${Math.random()*255},${Math.random()*255},${Math.random()*255})`);
+        });
+        let val = document.getElementById("text")
         let box = document.getElementById("container")
-        for(let i = 0; i <= 95; i+=2){
-            box.innerHTML += `<div class="box">${i}</div>`
-            box.innerHTML += `<div class="box2">${i+1}</div>`
-        }
 
-    $("input").on("keydown", function() {
-    $("body").css("background-color", 
-        `rgba(${Math.random()*255},${Math.random()*255},${Math.random()*255})`);
-    });
+        $("#button").on("click", function(){
+            for(let i = 1; i <= val.value; i+=2){
+                box.innerHTML += `<div class="box">${i}</div>`
+                box.innerHTML += `<div class="box2">${i+1}</div>`
+            }
+        })
+
+
+
 
     </script>
 </body>
