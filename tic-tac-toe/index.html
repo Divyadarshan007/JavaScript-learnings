@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="game-container">
+        <div id="board">
+          <div class="cell" id="t1"></div>
+          <div class="cell" id="t2"></div>
+          <div class="cell" id="t3"></div>
+          <div class="cell" id="t4"></div>
+          <div class="cell" id="t5"></div>
+          <div class="cell" id="t6"></div>
+          <div class="cell" id="t7"></div>
+          <div class="cell" id="t8"></div>
+          <div class="cell" id="t9"></div>
+        </div>
+        <div class="info">
+          <p id="status">Player X's turn</p>
+          <button id="reset">Reset Game</button>
+          <div class="leaderboard">
+            <p><strong>Leaderboard:</strong></p>
+            <p id="xWins">X Wins: <span id="pointx">0</span></p>
+            <p id="oWins">O Wins: <span id="pointo">0</span></p>
+          </div>
+        </div>
+      </div>
+      <script src="./assets/js/jquery-3.7.1.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
