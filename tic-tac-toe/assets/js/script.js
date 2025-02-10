@@ -1,6 +1,6 @@
 let count = 0;
 let flag = true
-
+let pStatus = document.getElementById("status")
 let pointX = parseInt(document.getElementById("pointx").innerHTML)
 let pointO = parseInt(document.getElementById("pointo").innerHTML)
 function checkWin(val) {
@@ -221,6 +221,8 @@ function clear(){
         document.getElementById(`t${i}`).innerHTML = "";
         count = 0;
     }
+
+     pStatus.innerHTML =  `Player X's turn`
 }
 
 $(".cell").on("click", function () {
@@ -228,9 +230,11 @@ $(".cell").on("click", function () {
 
     if (tile.innerHTML == "") {
         if (count % 2 == 0) {
-            tile.innerHTML = "X"
+            tile.innerHTML = "X";
+            pStatus.innerHTML =  `Player O's turn`
         } else {
             tile.innerHTML = "O"
+            pStatus.innerHTML =  `Player X's turn`
         }
         count++
 
@@ -247,4 +251,8 @@ $(".cell").on("click", function () {
             text: "Something went wrong!",
         });
     }
+})
+
+$("#reset").on("click", function(){
+    clear();
 })
