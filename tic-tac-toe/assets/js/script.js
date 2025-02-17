@@ -1,9 +1,10 @@
 let count = 0;
-let flag = true
 let pStatus = document.getElementById("status")
 let pointX = parseInt(document.getElementById("pointx").innerHTML)
 let pointO = parseInt(document.getElementById("pointo").innerHTML)
 function checkWin(val) {
+    let flag = true;
+
     for (let i = 1; i <= 3; i++) {
         let symbol = document.getElementById(`t${i}`).innerHTML
 
@@ -17,7 +18,7 @@ function checkWin(val) {
         Swal.fire({
             icon: "success",
             title: `${val} won`,
-            text: "Something went wrong!",
+            
         })
         if (val == "X") {
             document.getElementById("xWins").innerHTML = `X Wins: ${pointX += 1}`
@@ -42,7 +43,7 @@ function checkWin(val) {
         Swal.fire({
             icon: "success",
             title: `${val} won`,
-            text: "Something went wrong!",
+            
         })
 
         if (val == "X") {
@@ -68,7 +69,7 @@ function checkWin(val) {
         Swal.fire({
             icon: "success",
             title: `${val} won`,
-            text: "Something went wrong!",
+            
         })
 
         if (val == "X") {
@@ -93,7 +94,7 @@ function checkWin(val) {
         Swal.fire({
             icon: "success",
             title: `${val} won`,
-            text: "Something went wrong!",
+            
         })
 
         if (val == "X") {
@@ -118,7 +119,7 @@ function checkWin(val) {
         Swal.fire({
             icon: "success",
             title: `${val} won`,
-            text: "Something went wrong!",
+            
         })
 
         if (val == "X") {
@@ -143,7 +144,7 @@ function checkWin(val) {
         Swal.fire({
             icon: "success",
             title: `${val} won`,
-            text: "Something went wrong!",
+            
         })
 
         if (val == "X") {
@@ -168,7 +169,7 @@ function checkWin(val) {
         Swal.fire({
             icon: "success",
             title: `${val} won`,
-            text: "Something went wrong!",
+            
         })
 
         if (val == "X") {
@@ -193,7 +194,7 @@ function checkWin(val) {
         Swal.fire({
             icon: "success",
             title: `${val} won`,
-            text: "Something went wrong!",
+            
         })
 
         if (val == "X") {
@@ -209,7 +210,7 @@ function checkWin(val) {
         Swal.fire({
             icon: "warning",
             title: "Draw !",
-            text: "Something went wrong!",
+            
         }).then(() => {
            clear();
         });
@@ -248,7 +249,7 @@ $(".cell").on("click", function () {
         Swal.fire({
             icon: "error",
             title: "Cant Overwrite !",
-            text: "Something went wrong!",
+            
         });
     }
 })

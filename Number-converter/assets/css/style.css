@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", serif;
+}
+section{
+    background: url("../images/formify-bg-21.jpg");
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container1{
+    width: 800px;
+    background-color: #F6F9FC;
+    
+}
+.content{
+    max-width: 600px;
+    margin: auto;
+}
+.bg-image{
+    background: url("../images/formify-quiz-shape.png");
+    height: 220px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    place-content: center;
+  
+}
+.bg-image span{
+    font-size: 35px;
+    color: #fff;
+    font-weight: 700;
+}
+.content{
+    padding: 40px 55px;
+}
+.selectBox select{
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 2px 12px 0px rgba(16, 24, 40, 0.06) ;
+    width: 300px;
+}
+.inputBoxes input{
+    width: 100%;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 12px 0px rgba(16, 24, 40, 0.06);
+    font-size: 20px;
+    
+}
+.inputBoxes input:focus{
+    outline: 2px solid #0054fb !important;
+}
+
+.button button{
+    padding: 10px 30px;
+    border: none;
+    background-color: #0054fb;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 0px 0px#ff85c5;
+    transition: 0.1s all linear;
+    
+}
+.button button:hover{
+    background-color: #0141c0;
+}
+.button button:active{
+    box-shadow: none;
+    transform: translate(10px);
+}
+.nice-select{
+    width: 100% ;
+}
+#inputText{
+    color: #0054fb;
+}
+
+.swapIcon span{
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+@media (max-width:372px) {
+        h1{
+            font-size: 20px;
+        }
+        .bg-image span{
+            font-size: 30px;
+        }
+        .content{
+            padding: 20px;
+        }
+}
