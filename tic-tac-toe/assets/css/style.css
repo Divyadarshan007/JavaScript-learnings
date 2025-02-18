@@ -9,20 +9,33 @@
   
   body {
     font-family: Arial, sans-serif;
+    background-color: #f9d459;
     
   }
   section{
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f9d459;
   }
-  
+
+  .flex{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .justify-between{
+    justify-content: space-around;
+  }
+  .container{
+    max-width: 1320px; 
+    margin: auto;
+   
+  }
   .game-container {
     text-align: center;
-    background-color: #fdebee;
-    padding: 55px 55px;
+    background-image: radial-gradient(circle, #fde8ec, #fde5ea, #fde2e9, #fddfe7, #fddce6);
+    padding: 55px;
     border-radius: 40px;
   }
   .border-red{
@@ -72,8 +85,10 @@
   #reset {
     padding: 5px 15px;
     font-size: 1rem;
-    background-color: #4CAF50;
-    color: white;
+    background-image: linear-gradient(to right top, #f6ab20, #f7b52e, #f7be3a, #f8c847, #f9d153);
+    color: #000;
+    font-weight: 600;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
   }
@@ -92,3 +107,66 @@
     font-weight: bold;
   }
   
+  .color-sucess {
+    background-color: #00ab55 !important;
+    color: white !important;
+  }
+  .color-danger{
+    color: white !important;
+    background-color: #f22853 !important;
+  }
+  
+  .swal2-close {
+    color: white !important;
+  }
+
+  .forx{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f22853;
+    border: 2px solid #f1093c;
+    font-size: 25px;
+    font-weight: semi-bold;
+    color: #f9d459;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #f9d459;
+    text-shadow: -2px 4px 2px rgba(0, 0, 0, 0.253);
+  }
+  .foro{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #f1093c;
+    font-size: 25px;
+    background-color: #f22853;
+    font-weight: semi-bold;
+    color: #fff;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #fff;
+    text-shadow: -2px 4px 2px rgba(0, 0, 0, 0.253);
+  }
+  #xWins{
+    font-size: 20px;
+    font-weight: 600;
+  }
+  #oWins{
+    font-weight: 600;
+    font-size: 20px;
+  }
+.text-red{
+  color: #f22853;
+}
+h3{
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+@media (max-width:400px) {
+  .game-container{
+    padding: 20px;
+    border-radius: 0;
+  }
+
+
+}

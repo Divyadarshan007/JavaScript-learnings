@@ -4,40 +4,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assets/css/style.css">
   <title>Document</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body>
+<body id="body">
   <section>
-    <div class="game-container">
-      <div class="border-red">
-        <div id="board">
-          <div class="cell border-right border-bottom" id="t1"></div>
-          <div class="cell border-right border-bottom" id="t2"></div>
-          <div class="cell  border-bottom" id="t3"></div>
-          <div class="cell border-right border-bottom" id="t4"></div>
-          <div class="cell border-right border-bottom" id="t5"></div>
-          <div class="cell border-bottom" id="t6"></div>
-          <div class="cell border-right " id="t7"></div>
-          <div class="cell border-right " id="t8"></div>
-          <div class="cell" id="t9"></div>
+    <div class="container">
+      <div class="game-container">
+        <h3>Tic <span class="text-red">Tac</span> Toe</h3>
+        <div class="border-red">
+          <div id="board">
+            <div class="cell border-right border-bottom" id="t1"></div>
+            <div class="cell border-right border-bottom" id="t2"></div>
+            <div class="cell  border-bottom" id="t3"></div>
+            <div class="cell border-right border-bottom" id="t4"></div>
+            <div class="cell border-right border-bottom" id="t5"></div>
+            <div class="cell border-bottom" id="t6"></div>
+            <div class="cell border-right " id="t7"></div>
+            <div class="cell border-right " id="t8"></div>
+            <div class="cell" id="t9"></div>
+          </div>
         </div>
-      </div>
-      <div class="info">
-        <p id="status">Player X's turn</p>
-        <button id="reset">Reset Game</button>
-        <div class="leaderboard">
-          <p><strong>Leaderboard:</strong></p>
-          <p id="xWins">X Wins: <span id="pointx">0</span></p>
-          <p id="oWins">O Wins: <span id="pointo">0</span></p>
+        <div class="info">
+          <p id="status">Player X's turn</p>
+          <button id="reset" type="button">Reset Game</button>
+          <div class="leaderboard">
+            <p><strong>Leaderboard:</strong></p>
+            <div class="flex justify-between ">
+              <div>
+                <div class="forx">X</div>
+                <p id="xWins"> <span id="pointx">0</span></p>
+              </div>
+              <div>
+                <div class="foro">O</div>
+                <p id="oWins"> <span id="pointo">0</span></p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <div id="toast"></div>
   <script src="./assets/js/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./assets/js/script.js"></script>
+  <script>
+    $(document).ready(function () {
+
+    })
+  </script>
 </body>
 
 </html>
