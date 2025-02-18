@@ -15,16 +15,26 @@ function checkWin(val) {
     }
 
     if (flag) {
-        Swal.fire({
-            icon: "success",
-            title: `${val} won`,
-            
-        })
-        if (val == "X") {
-            document.getElementById("xWins").innerHTML = `X Wins: ${pointX += 1}`
-        } else {
-            document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
+        setTimeout(function () {
+            Swal.fire({
+                icon: "success",
+                title: `${val} won`,
+            }).then(()=>{
+                clear()
+                for (let i = 1; i <= 3; i++) {
+                    document.getElementById(`t${i}`).style.backgroundColor = "#f22853"
+                }
+            })
 
+            if (val == "X") {
+                document.getElementById("xWins").innerHTML = `X Wins: ${pointX += 1}`
+            } else {
+                document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
+
+            }
+        }, 200)
+        for (let i = 1; i <= 3; i++) {
+            document.getElementById(`t${i}`).style.backgroundColor = "#f9d459"
         }
         return true;
     }
@@ -40,17 +50,27 @@ function checkWin(val) {
     }
 
     if (flag) {
-        Swal.fire({
-            icon: "success",
-            title: `${val} won`,
-            
-        })
+        setTimeout(function () {
+            Swal.fire({
+                icon: "success",
+                title: `${val} won`,
 
-        if (val == "X") {
-            document.getElementById("xWins").innerHTML = `X Wins: ${pointX += 1}`
-        } else {
-            document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
+            }).then(()=>{
+                clear()
+                for (let i = 4; i <= 6; i++) {
+                    document.getElementById(`t${i}`).style.backgroundColor = "#f22853"
+                }
+            })
 
+            if (val == "X") {
+                document.getElementById("xWins").innerHTML = `X Wins: ${pointX += 1}`
+            } else {
+                document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
+
+            }
+        }, 200)
+        for (let i = 4; i <= 6; i++) {
+            document.getElementById(`t${i}`).style.backgroundColor = "#f9d459"
         }
         return true;
     }
@@ -66,18 +86,30 @@ function checkWin(val) {
     }
 
     if (flag) {
-        Swal.fire({
-            icon: "success",
-            title: `${val} won`,
-            
-        })
+        setTimeout(function () {
+            Swal.fire({
+                icon: "success",
+                title: `${val} won`,
 
-        if (val == "X") {
-            document.getElementById("xWins").innerHTML = `X Wins: ${pointX += 1}`
-        } else {
-            document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
+            }).then(()=>{
+                clear()
+                for (let i = 7; i <= 9; i++) {
+                    document.getElementById(`t${i}`).style.backgroundColor = "#f22853"
+                }
+            })
 
-        }
+            if (val == "X") {
+                document.getElementById("xWins").innerHTML = `X Wins: ${pointX += 1}`
+            } else {
+                document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
+
+            }
+        }, 200)
+      
+            for (let i = 7; i <= 9; i++) {
+                document.getElementById(`t${i}`).style.backgroundColor = "#f9d459"
+            }
+
         return true;
     }
     flag = true;
@@ -91,10 +123,16 @@ function checkWin(val) {
     }
 
     if (flag) {
+     setTimeout(function(){
         Swal.fire({
             icon: "success",
             title: `${val} won`,
-            
+
+        }).then(()=>{
+            clear()
+            for (let i = 1; i <= 7; i+=3) {
+                document.getElementById(`t${i}`).style.backgroundColor = "#f22853"
+            }
         })
 
         if (val == "X") {
@@ -103,6 +141,11 @@ function checkWin(val) {
             document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
 
         }
+     }, 200)
+     for (let i = 1; i <= 7; i += 3) {
+        document.getElementById(`t${i}`).style.backgroundColor = "#f9d459"
+
+    }
         return true;
     }
     flag = true;
@@ -116,10 +159,16 @@ function checkWin(val) {
     }
 
     if (flag) {
+       setTimeout(function(){
         Swal.fire({
             icon: "success",
             title: `${val} won`,
-            
+
+        }).then(()=>{
+            clear()
+            for (let i = 2; i <= 8; i+=3) {
+                document.getElementById(`t${i}`).style.backgroundColor = "#f22853"
+            }
         })
 
         if (val == "X") {
@@ -128,6 +177,10 @@ function checkWin(val) {
             document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
 
         }
+       }, 200)
+       for (let i = 2; i <= 8; i+=3) {
+        document.getElementById(`t${i}`).style.backgroundColor = "#f9d459"
+    }
         return true;
     }
     flag = true;
@@ -141,17 +194,27 @@ function checkWin(val) {
     }
 
     if (flag) {
-        Swal.fire({
-            icon: "success",
-            title: `${val} won`,
-            
-        })
-
-        if (val == "X") {
-            document.getElementById("xWins").innerHTML = `X Wins: ${pointX += 1}`
-        } else {
-            document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
-
+        setTimeout(function(){
+            Swal.fire({
+                icon: "success",
+                title: `${val} won`,
+    
+            }).then(()=>{
+                clear()
+                for (let i = 3; i <= 9; i+=3) {
+                    document.getElementById(`t${i}`).style.backgroundColor = "#f22853"
+                }
+            })
+    
+            if (val == "X") {
+                document.getElementById("xWins").innerHTML = `X Wins: ${pointX += 1}`
+            } else {
+                document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
+    
+            }
+        }, 200)
+        for (let i = 3; i <= 9; i+=3) {
+            document.getElementById(`t${i}`).style.backgroundColor = "#f9d459"
         }
         return true;
     }
@@ -166,17 +229,27 @@ function checkWin(val) {
     }
 
     if (flag) {
-        Swal.fire({
-            icon: "success",
-            title: `${val} won`,
-            
-        })
-
-        if (val == "X") {
-            document.getElementById("xWins").innerHTML = `X Wins: ${pointX += 1}`
-        } else {
-            document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
-
+        setTimeout(function(){
+            Swal.fire({
+                icon: "success",
+                title: `${val} won`,
+    
+            }).then(()=>{
+                clear()
+                for (let i = 1; i <= 9; i+=4) {
+                    document.getElementById(`t${i}`).style.backgroundColor = "#f22853"
+                }
+            })
+    
+            if (val == "X") {
+                document.getElementById("xWins").innerHTML = `X Wins: ${pointX += 1}`
+            } else {
+                document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
+    
+            }
+        }, 200)
+         for (let i = 1; i <= 9; i+=4) {
+            document.getElementById(`t${i}`).style.backgroundColor = "#f9d459"
         }
         return true;
     }
@@ -191,39 +264,53 @@ function checkWin(val) {
     }
 
     if (flag) {
-        Swal.fire({
-            icon: "success",
-            title: `${val} won`,
-            
-        })
-
-        if (val == "X") {
-            document.getElementById("xWins").innerHTML = `X Wins: ${pointX += 1}`
-        } else {
-            document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
-
+        setTimeout(function(){
+            Swal.fire({
+                icon: "success",
+                title: `${val} won`,
+    
+            }).then(()=>{
+                clear()
+                for (let i = 3; i <= 7; i+=2) {
+                    document.getElementById(`t${i}`).style.backgroundColor = "#f22853"
+                }
+            })
+    
+            if (val == "X") {
+                document.getElementById("xWins").innerHTML = `X Wins: ${pointX += 1}`
+            } else {
+                document.getElementById("oWins").innerHTML = `O Wins: ${pointO += 1}`
+    
+            }
+        },200)
+        for (let i = 3; i <= 7; i+=2) {
+            document.getElementById(`t${i}`).style.backgroundColor = "#f9d459"
         }
         return true;
     }
 
     if (count == 9) {
+     setTimeout(function(){
         Swal.fire({
             icon: "warning",
             title: "Draw !",
-            
+
         }).then(() => {
-           clear();
+            clear();
         });
+     },200)
     }
 }
 
-function clear(){
+function clear() {
+   setTimeout(function(){
     for (let i = 1; i <= 9; i++) {
         document.getElementById(`t${i}`).innerHTML = "";
         count = 0;
     }
 
-     pStatus.innerHTML =  `Player X's turn`
+    pStatus.innerHTML = `Player X's turn`
+   },200)
 }
 
 $(".cell").on("click", function () {
@@ -232,28 +319,26 @@ $(".cell").on("click", function () {
     if (tile.innerHTML == "") {
         if (count % 2 == 0) {
             tile.innerHTML = "X";
-            pStatus.innerHTML =  `Player O's turn`
+            tile.style.color = "#f9d459";
+            pStatus.innerHTML = `Player O's turn`
         } else {
             tile.innerHTML = "O"
-            pStatus.innerHTML =  `Player X's turn`
+            tile.style.color = "#fff";
+            pStatus.innerHTML = `Player X's turn`
         }
         count++
 
         if (count >= 5) {
             let win = checkWin(tile.innerHTML)
-            if (win) {
-               clear()
-            }
         }
     } else {
         Swal.fire({
             icon: "error",
             title: "Cant Overwrite !",
-            
         });
     }
 })
 
-$("#reset").on("click", function(){
+$("#reset").on("click", function () {
     clear();
 })
