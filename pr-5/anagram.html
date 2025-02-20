@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+<body>
+
+    <div>
+        <h3>Enter Two string to check wheather it is anagram or not</h3>
+
+        <input type="text" id="input-1" placeholder="Enter String">
+        <input type="text" id="input-2" placeholder="Enter String">
+
+        <button type="button" id="btn">click</button>
+        <h1 id="ans"></h1>
+
+    </div>
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script>
+            let input1 = document.getElementById("input-1")
+            let input2 = document.getElementById("input-2")
+            let answer = document.getElementById("ans")
+        $(document).ready(()=>{
+            $("#btn").on("click", ()=>{
+            let anagram1 = input1.value.toLowerCase()
+            let anagram2 = input2.value.toLowerCase()
+            let checkAnagram1 = anagram1.split("").sort().join("")
+            let checkAnagram2 = anagram2.split("").sort().join("")
+                
+            if(checkAnagram1 === checkAnagram2){
+                answer.innerHTML = `This is Anagram String`;
+            }else{
+                answer.innerHTML = `This is not Anagram String`;
+            }
+                
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <div>
+        <h3>Convert String Into Lowercase or Uppercase </h3>
+        <input type="text" id="input-1" placeholder="Enter String">
+
+        <button type="button" id="btn1">Lowercase</button>
+        <button type="button" id="btn2">Uppercase</button>
+        <button type="button" id="btn3">Togglecase</button>
+
+        <h1 id="ans"></h1>
+    </div>
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script>
+        let input1 = document.getElementById("input-1")
+        let answer = document.getElementById("ans")
+        $(document).ready(()=>{
+            $("#btn1").on("click", ()=>{
+                let lowerCase = input1.value.toLowerCase()
+                answer.innerHTML = lowerCase
+            })
+            $("#btn2").on("click", ()=>{
+                let upperCase = input1.value.toUpperCase()
+                answer.innerHTML = upperCase
+            })
+            $("#btn3").on("click", ()=>{
+                let toggleCase = input1.value
+                let size = toggleCase.length
+                let newStr = [];
+         
+                for(let i = 0; i < size; i++){
+                    if(toggleCase.charCodeAt(i) >= 65 && toggleCase.charCodeAt(i) <= 90){
+                       newStr[i] = toggleCase[i].toLowerCase()
+
+                    }else{
+                        newStr[i] = toggleCase[i].toUpperCase()
+                    }
+                }
+                answer.innerHTML = newStr.join("");
+            })
+        })
+    </script>
+</body>
+</html>

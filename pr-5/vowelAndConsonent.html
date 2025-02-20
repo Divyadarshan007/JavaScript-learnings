@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <div>
+        <h3>Enter string</h3>
+        <input type="text" id="input-1" placeholder="Enter String">
+        <button id="btn" type="button">Click</button>
+        <h1 id="ans"></h1>
+    </div>
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        let input1 = document.getElementById("input-1")
+        let answer = document.getElementById("ans")
+        $(document).ready(()=>{
+            $("#btn").on("click", () => {
+                let arr = input1.value.split(" ")
+                let size = arr.length;
+
+                let str = "aeiouAEIOU";
+                let arrStr = str.split("")
+
+                let vowelCount = 0;
+                let consonantCount = 0;
+
+                for(let i = 0; i < size; i++){
+                    let vowel = arr[i].split("")
+                        
+                    let n = vowel.length
+                    console.log(n)
+              
+                       for(let j = 0; j < n; j++){
+                      
+                           if(arrStr.includes(vowel[j])){
+                            vowelCount++
+
+                        }else{
+
+                            consonantCount++
+                        }
+                    }
+                }
+
+                answer.innerHTML = `The count of vowels  are ( ${vowelCount} ) and count of consonant are ( ${consonantCount} )`;
+                
+            })
+        })
+    </script>
+</body>
+</html>
