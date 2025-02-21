@@ -24,3 +24,6 @@ bike = car;
     delete bike.name // To delete any properties of Objects
 
 console.log(bike)
+
+
+
