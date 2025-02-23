@@ -22,10 +22,8 @@
                 </h2>
                 <form class="subscribe">
                     <input type="text" id="input-1" placeholder="Enter String">
-                    <button type="button" id="btn">Click</button>
+                    <button type="button" class="uniqueBtn" id="btn">Click</button>
                 </form>
-
-                <h1 id="ans">Ans : </h1>
             </div>
             <img class="part1 particle" src="assets/images/particle 1.png" alt="1">
             <img class="part2 particle" src="assets/images/particle 2.png" alt="2">
@@ -34,9 +32,9 @@
     </section>
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         let input1 = document.getElementById("input-1")
-        let answer = document.getElementById("ans")
         $(document).ready(()=>{
             $("#btn").on("click", ()=>{
                let arr = input1.value.trim().split(" ").filter((val) => val !== "").map(Number)
@@ -59,9 +57,12 @@
                     }
                 }
                 let ans =   newArr.join(",").split(" ")
-                answer.innerText = `The prime numbers are ${ans}`
-
-
+                Swal.fire({
+                        title: `The prime numbers are ${ans}`,
+                        icon: "success"
+                    }).then(()=>{
+                        input1.value = "";
+                    });
             })
         })
     </script>

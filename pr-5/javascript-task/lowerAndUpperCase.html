@@ -1,47 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./assets/fonts/broadway/stylesheet.css">
 </head>
+
 <body>
 
-    <div>
-        <h3>Convert String Into Lowercase or Uppercase </h3>
-        <input type="text" id="input-1" placeholder="Enter String">
+    
+    <section class="container">
+        <div class="popup fadedown">
+            <div class="wrapper">
+                <div class="title">
+                    MultiCase String
+                </div>
+                <h2 class="tag">
+                    Convert String Into Lowercase, Uppercase or Togglecase
+                </h2>
+                <form class="subscribe flex-column">
+                    <div>
+                        <input type="text" id="input-1" placeholder="Enter String">
+                    </div>
+                    <div>
+                        <button type="button" class="uniqueBtn" id="btn1">Lowercase</button>
+                        <button type="button" class="uniqueBtn" id="btn2">Uppercase</button>
+                        <button type="button" class="uniqueBtn" id="btn3">Togglecase</button>
+                    </div>
+                </form>
 
-        <button type="button" id="btn1">Lowercase</button>
-        <button type="button" id="btn2">Uppercase</button>
-        <button type="button" id="btn3">Togglecase</button>
-
-        <h1 id="ans"></h1>
-    </div>
+                <div>
+                    
+                    <h1 class="mt-4" id="">Answer : <span id="ans"></span></h1>
+                </div>
+            </div>
+            <img class="part1 particle" src="assets/images/particle 1.png" alt="1">
+            <img class="part2 particle" src="assets/images/particle 2.png" alt="2">
+            <img class="part3 particle" src="assets/images/particle 3.png" alt="3">
+        </div>
+    </section>
+    <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         let input1 = document.getElementById("input-1")
         let answer = document.getElementById("ans")
-        $(document).ready(()=>{
-            $("#btn1").on("click", ()=>{
+        $(document).ready(() => {
+            $("#btn1").on("click", () => {
                 let lowerCase = input1.value.toLowerCase()
                 answer.innerHTML = lowerCase
             })
-            $("#btn2").on("click", ()=>{
+            $("#btn2").on("click", () => {
                 let upperCase = input1.value.toUpperCase()
                 answer.innerHTML = upperCase
             })
-            $("#btn3").on("click", ()=>{
+            $("#btn3").on("click", () => {
                 let toggleCase = input1.value
                 let size = toggleCase.length
                 let newStr = [];
-         
-                for(let i = 0; i < size; i++){
-                    if(toggleCase.charCodeAt(i) >= 65 && toggleCase.charCodeAt(i) <= 90){
-                       newStr[i] = toggleCase[i].toLowerCase()
 
-                    }else{
+                for (let i = 0; i < size; i++) {
+                    if (toggleCase.charCodeAt(i) >= 65 && toggleCase.charCodeAt(i) <= 90) {
+                        newStr[i] = toggleCase[i].toLowerCase()
+
+                    } else {
                         newStr[i] = toggleCase[i].toUpperCase()
                     }
                 }
@@ -50,4 +78,5 @@
         })
     </script>
 </body>
+
 </html>

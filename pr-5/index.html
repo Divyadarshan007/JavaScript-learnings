@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,48 @@
     <title>Document</title>
     <link rel="stylesheet" href="./javascript-task/assets/css/style.css">
 </head>
+
 <body>
-    <div>
-        <a href="./javascript-task/anagram.html">angaram</a>
-        <a href="./javascript-task/duplicate.html">duplicate</a>
-        <a href="./javascript-task/longestWord.html">longest word</a>
-        <a href="./javascript-task/lowerAndUpperCase.html">Lower and upper Case</a>
-        <a href="./javascript-task/palindrome.html">Palindrome</a>
-        <a href="./javascript-task/primeNumber.html">Prime Number</a>
-        <a href="./javascript-task/secondMinMax.html">Second Min max</a>
-        <a href="./javascript-task/vowelAndConsonent.html">Vowel and consonant</a>
-    </div>
+
+    <section class="main-page">
+        <div class="slider-container">
+            <div class="slide-btn">
+                <a target="_blank" href="./javascript-task/anagram.html">angaram</a>
+            </div>
+            <div class="slide-btn">
+                <a target="_blank" href="./javascript-task/duplicate.html">duplicate</a>
+            </div>
+            <div class="slide-btn">
+                <a target="_blank" href="./javascript-task/longestWord.html">longest word</a>
+            </div>
+            <div class="slide-btn">
+                <a target="_blank" href="./javascript-task/lowerAndUpperCase.html">Lower and upper Case</a>
+            </div>
+            <div class="slide-btn">
+                <a target="_blank" href="./javascript-task/palindrome.html">Palindrome</a>
+            </div>
+            <div class="slide-btn">
+                <a target="_blank" href="./javascript-task/primeNumber.html">Prime Number</a>
+            </div>
+            <div class="slide-btn">
+                <a target="_blank" href="./javascript-task/secondMinMax.html">Second Min max</a>
+            </div>
+            <div class="slide-btn">
+                <a target="_blank" href="./javascript-task/vowelAndConsonent.html">Vowel and consonant</a>
+            </div>
+        </div>
+    </section>
+    <script src="./javascript-task/assets/js/jquery-3.7.1.min.js"></script>
+    <script>
+
+        var swiper = new Swiper(".mySwiper", {
+            direction: "vertical",
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
 </body>
+
 </html>
