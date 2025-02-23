@@ -45,12 +45,12 @@
                 })
                 let newArr = []
                 newArr = arr.filter((val, idx) => {
-                    return arr.indexOf(val) !== idx
+                    return arr.indexOf(val) === idx
                 })
 
                 //   answer.innerHTML = `The Duplicate element is  ${newArr}`
                 Swal.fire({
-                    title: `The Duplicate element is  ${newArr}`,
+                    title: `New array after removing duplicate element is  ${newArr}`,
                     icon: "success"
                 }).then(() => {
                     input1.value = "";
