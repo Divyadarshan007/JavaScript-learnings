@@ -25,6 +25,10 @@
                     <input type="text" id="input-1" placeholder="Enter String">
                     <button type="button" class="uniqueBtn" id="btn">Click</button>
                 </form>
+                <div class="pt-4 d-flex justify-content-around">
+                    <button class="btn btn-info" type="button"><a href="./duplicate.html" class="text-white fw-bold text-decoration-none">Prev</a></button>
+                    <button class="btn btn-info" type="button"><a href="./lowerAndUpperCase.html" class="text-white fw-bold text-decoration-none">Next</a></button>
+                </div>
             </div>
             <img class="part1 particle" src="assets/images/particle 1.png" alt="1">
             <img class="part2 particle" src="assets/images/particle 2.png" alt="2">
@@ -38,8 +42,19 @@
 
     <script>
         let input1 = document.getElementById("input-1")
+        const checkValid = () => {
+            if(input1.value == ""){
+                Swal.fire({
+                        title: "Enter Valid Input !",
+                        icon: "warning"
+                })
+                return false;
+            }
+            return true;
+        }
         $(document).ready(() => {
             $("#btn").on("click", () => {
+                if(!checkValid())return;
                 let arr = input1.value.split(" ")
                 let size = arr.length;
                 let longestWord = arr[0];

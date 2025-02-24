@@ -31,6 +31,11 @@
                 <div class="mt-4">
                     <button type="button" class="uniqueBtn" id="btn">Click</button>
                 </div>
+
+                <div class="pt-4 d-flex justify-content-around">
+                    <button class="btn btn-info" type="button"><a href="../index.html" class="text-white fw-bold text-decoration-none">Prev</a></button>
+                    <button class="btn btn-info" type="button"><a href="./duplicate.html" class="text-white fw-bold text-decoration-none">Next</a></button>
+                </div>
             </div>
             <img class="part1 particle" src="assets/images/particle 1.png" alt="1">
             <img class="part2 particle" src="assets/images/particle 2.png" alt="2">
@@ -44,8 +49,21 @@
     <script>
         let input1 = document.getElementById("input-1")
         let input2 = document.getElementById("input-2")
+
+        const checkValid = () => {
+            if(input1.value == "" || input2.value == "" ){
+                Swal.fire({
+                        title: "Enter Valid Input !",
+                        icon: "warning"
+                })
+                return false;
+            }
+            return true;
+        }
         $(document).ready(() => {
             $("#btn").on("click", () => {
+                if(!checkValid())return;
+                
                 let anagram1 = input1.value.toLowerCase()
                 let anagram2 = input2.value.toLowerCase()
                 let checkAnagram1 = anagram1.split("").sort().join("")
