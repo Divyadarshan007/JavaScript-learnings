@@ -61,10 +61,8 @@
                 })
                 let newArr = []
                 newArr = arr.filter((val, idx) => {
-                    return arr.indexOf(val) === idx
+                    return arr.indexOf(val) !== idx
                 })
-
-               
                 Swal.fire({
                     position:"center",
                     title: `Duplicate Element removed [${newArr}] `,
