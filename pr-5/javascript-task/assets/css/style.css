@@ -221,6 +221,7 @@ body{
 
 }
 .main-page{
+    padding: 80px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -246,6 +247,7 @@ body{
     position: relative;
     transition: 0.3s all linear;
     
+    
 }
 .f-family{
     font-family: "Barlow Condensed", serif !important;
@@ -255,6 +257,7 @@ body{
     outline: 1px dashed #BF1109;
     color: black;
 }
+
 .icon i{
     font-size: 30px;
 }
@@ -262,3 +265,10 @@ body{
 .text-red{
     color: #BF1109;
 }
+
+@media (max-width:992px) {
+    .main-page{
+        height: 100% !important;
+    }
+}
+
