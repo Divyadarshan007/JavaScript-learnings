@@ -2,7 +2,6 @@
 
 *{
     list-style: none !important;
-    text-decoration: none !important;
     font-family: "Poppins", serif;
 }
 
@@ -13,7 +12,7 @@ section{
 }
 
 .todo-app{
-    max-width: 300px;
+    max-width: 320px;
     width: 100%;
     height: 500px;
     border-radius: 30px;
@@ -39,7 +38,12 @@ section{
     max-height: 300px;
     overflow: auto;
     scrollbar-width: none;
-
+}
+.text{
+    color: #ffffffda;
+}
+.priority{
+    color: #ffffffda;
 }
 
 .d-btn{
@@ -50,12 +54,13 @@ section{
     border: 4px solid #e8eee5;
     width: 50%;
     color: #fff;
-}
-.button2{
     color: #799b44;
 }
+
 .active{
-    background-color: #799b44;
+    background-color: #799b44 ;
+    color: #fff;
+    transition: 0.2s all linear;
 }
 .add-icon{
     width: 30px;
@@ -72,21 +77,26 @@ section{
 }
 .task{
     width: 70%;
-    background-color: #d78c28;
     padding:8px 10px;
     border-radius: 10px;
     border-right: 1px dashed #ffffff8e;
+   
+    
+}
+.height-100{
+    height: 100%;
 }
 .priority{
     width: 30%;
-    background-color: #d78c28;
     padding:8px 10px;
     border-radius: 10px;
+    height: 100%;
+
 }
 
 .task input{
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
     border: none !important;
     outline: none;
 }
