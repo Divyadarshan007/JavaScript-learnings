@@ -4,13 +4,58 @@ let taskInput = document.querySelector("#input-1")
 let priority = document.querySelector("#priority-1")
 let submitBtn = document.querySelector(".sub-btn")
 let taskBox = document.querySelector(".task-box")
+let taskBox2 = document.querySelector(".task-box2")
+let pos = document.querySelectorAll(".pos")
 let taskBg = document.getElementById("task") 
 let pendingBtn = document.querySelectorAll(".d-btn")
+let clearBtn = document.querySelector(".clear-btn");
+let button2 = document.querySelector(".button2")
+let button1 = document.querySelector(".button1")
+
 let pendingTask = [];
 let finishedTask = [];
-console.log(pendingTask)
-console.log(finishedTask)
 
+button2.addEventListener("click", () => {
+    clearBtn.classList.remove("d-none")
+})
+button1.addEventListener("click", () => {
+    clearBtn.classList.add("d-none")
+})
+clearBtn.addEventListener("click",()=>{
+    finishedTask = "";
+    finishedTaskUpdate()
+})
+function finishedTaskUpdate(){
+    taskBox2.innerHTML = "";
+    finishedTask.forEach((val, idx)=>{
+        taskBox2.innerHTML += `
+                    <div class="d-flex align-items-center h-100 pb-3" >
+                        <div class="task d-flex align-items-center gap-3" id="task" style="background-color:${getBgColor(val.priority)}">
+                            <input type="checkbox" checked title="" class="check pe-none align-self-start my-1" id="" placeholder="task">
+                            <span class="fs-6 text text-decoration-line-through" ">${val.task}</span>
+                        </div>
+                        <div class="priority fs-6 text-center text-decoration-line-through " id="priority" style="background-color:${getBgColor(val.priority)}"">${getPriority(val.priority)}</div>
+                    </div>
+        `;
+    })
+}
+
+function pendingTaskUpdate(){
+    taskBox.innerHTML = "";
+    pendingTask.forEach((val, idx)=>{
+        taskBox.innerHTML += `
+                    <div class="d-flex align-items-center h-100 pb-3">
+                        <div class="task d-flex align-items-center gap-3" id="task" style="background-color:${getBgColor(val.priority)}">
+                            <input type="checkbox" title="" class="check align-self-start my-1" id="" placeholder="task">
+                            <span class="fs-6 text " ">${val.task}</span>
+                        </div>
+                        <div class="priority fs-6 text-center " id="priority" style="background-color:${getBgColor(val.priority)}"">${getPriority(val.priority)}</div>
+                    </div>
+        `;
+    })
+
+    checkBoxListner()
+}
 function getPriority(priorityNum){
     switch(priorityNum){
         case 1:
@@ -31,60 +76,40 @@ function getBgColor(bgColor){
             return "#d78c28";
     }    
 }
+function checkBoxListner(){
+    let checkBox = document.querySelectorAll(".check")
+    let lineThrough = document.querySelectorAll(".text")
+    let priorityBg = document.querySelectorAll(".priority")
+    checkBox.forEach((check, idx)=>{
+        check.addEventListener("change",(e)=>{
+         setTimeout(()=>{
+            finishedTask.push(pendingTask[idx])
+            pendingTask.splice(idx, 1)
+            finishedTaskUpdate();
+            pendingTaskUpdate();
+         }, 500)
 
-function taskRender(){
-    taskBox.innerHTML = "";
-    finishedTask.forEach((val)=>{
-        taskBox.innerHTML += `
-                    <div class="d-flex align-items-center h-100 pb-3">
-                        <div class="task d-flex align-items-center gap-3" id="task" style="background-color:${getBgColor(val.priority)}">
-                            <input type="checkbox" title="" class="check align-self-start my-1" id="check" placeholder="task">
-                            <span class="fs-6 text" ">${val.task}</span>
-                        </div>
-                        <div class="priority fs-6 text-center " id="priority" style="background-color:${getBgColor(val.priority)}"">${getPriority(val.priority)}</div>
-                    </div>
-        `;
+            if(e.target.checked == true){
+                lineThrough[idx].style.textDecoration = "line-through"; 
+                priorityBg[idx].style.textDecoration = "line-through";
+
+            }else{
+                lineThrough[idx].style.textDecoration = "none" 
+                priorityBg[idx].style.textDecoration = "none"
+            }
+        })
     })
-
-
-    pendingTask.forEach((val)=>{
-        taskBox.innerHTML += `
-                    <div class="d-flex align-items-center h-100 pb-3">
-                        <div class="task d-flex align-items-center gap-3" id="task" style="background-color:${getBgColor(val.priority)}">
-                            <input type="checkbox" title="" class="check align-self-start my-1" id="check" placeholder="task">
-                            <span class="fs-6 text" ">${val.task}</span>
-                        </div>
-                        <div class="priority fs-6 text-center " id="priority" style="background-color:${getBgColor(val.priority)}"">${getPriority(val.priority)}</div>
-                    </div>
-        `;
-    })
-}
+   }
 
 
 pendingBtn.forEach((btn)=>{
     btn.addEventListener("click", (e)=>{
-  console.log(e)
+        pos[0].classList.toggle("translate100")
+        pos[1].classList.toggle("translate100")
         pendingBtn.forEach((btn)=>{
             btn.classList.remove("active")
         })
         btn.classList.add("active")
-        if(e.target.className == "button2"){
-            taskBox.innerHTML = "";
-            finishedTask.forEach((val)=>{
-                taskBox.innerHTML += `
-                            <div class="d-flex align-items-center h-100 pb-3">
-                                <div class="task d-flex align-items-center gap-3" id="task" style="background-color:${getBgColor(val.priority)}">
-                                    <input type="checkbox" title="" class="check align-self-start my-1" id="check" placeholder="task">
-                                    <span class="fs-6 text" ">${val.task}</span>
-                                </div>
-                                <div class="priority fs-6 text-center " id="priority" style="background-color:${getBgColor(val.priority)}"">${getPriority(val.priority)}</div>
-                            </div>
-                `;
-            })
-        }else{
-            taskRender();
-        }
-   
         
     })
 })
@@ -108,45 +133,10 @@ submitBtn.addEventListener("click", () => {
         task: taskInput.value,
         priority: parseInt(priority.value),
     }
-    
-
 
     pendingTask.push(taskObj)
-    taskBox.innerHTML = "";
-    pendingTask.forEach((val, idx)=>{
-        taskBox.innerHTML += `
-                    <div class="d-flex align-items-center h-100 pb-3">
-                        <div class="task d-flex align-items-center gap-3" id="task" style="background-color:${getBgColor(val.priority)}">
-                            <input type="checkbox" title="" class="check align-self-start my-1" id="check" placeholder="task">
-                            <span class="fs-6 text" ">${val.task}</span>
-                        </div>
-                        <div class="priority fs-6 text-center " id="priority" style="background-color:${getBgColor(val.priority)}"">${getPriority(val.priority)}</div>
-                    </div>
-        `;
-    })
+   pendingTaskUpdate()
 
-    let checkBox = document.querySelectorAll(".check")
-    let lineThrough = document.querySelectorAll(".text")
-    let priorityBg = document.querySelectorAll(".priority")
-
-    checkBox.forEach((check, idx)=>{
-        check.addEventListener("change",(e)=>{
-            if(e.target.checked == true){
-
-                finishedTask.push(pendingTask[idx])
-                pendingTask.splice(idx, 1)
-
-                lineThrough[idx].style.textDecoration = "line-through" 
-                priorityBg[idx].style.textDecoration = "line-through"
-            }else{
-                
-                pendingTask.push(finishedTask[idx])
-                finishedTask.splice(idx, 1)
-                lineThrough[idx].style.textDecoration = "none" 
-                priorityBg[idx].style.textDecoration = "none"
-            }
-        })
-    })
     
  
     popBox.classList.toggle("visible")
@@ -158,24 +148,10 @@ submitBtn.addEventListener("click", () => {
     // option2.classList.remove("focus")
 })
 
-// let checkBox = document.querySelectorAll(".check")
-// let lineThrough = document.querySelectorAll(".text")
-// let priorityBg = document.querySelectorAll(".priority")
 
-// checkBox.forEach((check, idx)=>{
-//     check.addEventListener("change",(e)=>{
-      
-
-//             finishedTask.push(pendingTask[idx])
-//             pendingTask.splice(idx, 1)
 
          
         
-            
-//             // pendingTask.push(finishedTask[idx])
-//             // finishedTask.splice(idx, 1)
-       
-//     })
-// })
+
 
 

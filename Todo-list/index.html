@@ -17,40 +17,39 @@
             <div class="d-flex justify-content-center align-items-center vh-100">
                 <div class="todo-app">
                     <div class="todo-header"></div>
-                    <div class="todo-footer">
+                    <div class="todo-footer position-relative">
                         <div class="d-flex position-relative align-items-center justify-content-between mb-3">
                             <h3 class="m-0">Task</h3>
                             <span class="add-icon"><i class="bi bi-plus"></i></span>
 
                             <div class="pop-box visible-0">
-                              <form action="" id="task-form">
-                                <div>
-                                    <input type="text" id="input-1" placeholder="Enter Task" class="form-control mb-2">
-                                    <select name="priority" id="priority-1" title="priority " class="mb-2">
-                                        <option value="0" id="selected">Select option</option>
-                                        <option value="1">Low</option>
-                                        <option value="2">Medium</option>
-                                        <option value="3">High</option>
-                                    </select>
+                                <form action="" id="task-form">
                                     <div>
-                                        <button type="button" class="sub-btn">Submit</button>
+                                        <input type="text" id="input-1" placeholder="Enter Task"
+                                            class="form-control mb-2">
+                                        <select name="priority" id="priority-1" title="priority " class="mb-2">
+                                            <option value="0" id="selected">Select option</option>
+                                            <option value="1">Low</option>
+                                            <option value="2">Medium</option>
+                                            <option value="3">High</option>
+                                        </select>
+                                        <div>
+                                            <button type="button" class="sub-btn">Submit</button>
+                                        </div>
                                     </div>
-                                </div>
-                              </form>
+                                </form>
                             </div>
                         </div>
                         <div class="d-flex pb-3">
                             <button type="button" class="d-btn button1 active">Pending</button>
                             <button type="button" class="d-btn button2 ">Finished</button>
                         </div>
-                        <div class="task-box">
-                            <div class="d-flex align-items-center h-100">
-                                <div class="task d-flex align-items-center  gap-3" id="task">
-                                    <input type="checkbox" title="" class="check" id="check" placeholder="task">
-                                    <span class="fs-6 text">Bathing</span>
-                                </div>
-                                <div class="priority fs-6 text-center" id="priority">Low</div>
-                            </div>
+                        <div class="d-flex position-relative ">
+                            <div class="task-box pos"></div>
+                            <div class="task-box2 pos translate100"></div>
+                        </div>
+                        <div class="clear-btn d-none">
+                            <button type="button">clear</button>
                         </div>
                     </div>
 

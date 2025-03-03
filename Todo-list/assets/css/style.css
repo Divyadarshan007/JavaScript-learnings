@@ -14,7 +14,7 @@ section{
 .todo-app{
     max-width: 320px;
     width: 100%;
-    height: 500px;
+    height: 600px;
     border-radius: 30px;
     overflow: hidden;
     
@@ -34,10 +34,20 @@ section{
     margin-top: -50px;
     padding: 20px;
 }
-.task-box{
-    max-height: 300px;
+.task-box2{
+    max-height: 260px;
     overflow: auto;
     scrollbar-width: none;
+    text-wrap: wrap;
+    
+}
+.task-box{
+    max-height: 260px;
+    overflow: auto;
+    scrollbar-width: none;
+    text-wrap: wrap;
+    position: relative;
+    
 }
 .text{
     color: #ffffffda;
@@ -80,9 +90,11 @@ section{
     padding:8px 10px;
     border-radius: 10px;
     border-right: 1px dashed #ffffff8e;
-   
-    
+    -webkit-line-clamp: 2;
 }
+.task span{
+    text-wrap: wrap !important;
+} 
 .height-100{
     height: 100%;
 }
@@ -122,4 +134,34 @@ section{
     background-color: #799b44;
     border-radius: 5px;
     color: #fff;
+}
+.pos{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100% ;
+}
+.translate100{
+    transform: translateX(-150%);  
+}
+
+.clear-btn{
+    position: absolute;
+    top: 60%;
+    left: 35%;
+}
+.clear-btn button{
+    padding: 7px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #799b44;
+    color: #fff ;
+    text-transform: capitalize;
+    transition: 0.2s all linear;
+    
+}
+.clear-btn button:hover{
+    background-color: #fff;
+    outline: 2px solid #BFD1B6;
+    color: #799b44;
 }
