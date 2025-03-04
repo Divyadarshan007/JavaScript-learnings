@@ -6,7 +6,7 @@ let submitBtn = document.querySelector(".sub-btn")
 let taskBox = document.querySelector(".task-box")
 let taskBox2 = document.querySelector(".task-box2")
 let pos = document.querySelectorAll(".pos")
-let taskBg = document.getElementById("task") 
+let taskBg = document.getElementById("task")
 let pendingBtn = document.querySelectorAll(".d-btn")
 let clearBtn = document.querySelector(".clear-btn");
 let button2 = document.querySelector(".button2")
@@ -21,13 +21,13 @@ button2.addEventListener("click", () => {
 button1.addEventListener("click", () => {
     clearBtn.classList.add("d-none")
 })
-clearBtn.addEventListener("click",()=>{
-    finishedTask = "";
+clearBtn.addEventListener("click", () => {
+    finishedTask = [];
     finishedTaskUpdate()
 })
-function finishedTaskUpdate(){
+function finishedTaskUpdate() {
     taskBox2.innerHTML = "";
-    finishedTask.forEach((val, idx)=>{
+    finishedTask.forEach((val, idx) => {
         taskBox2.innerHTML += `
                     <div class="d-flex align-items-center h-100 pb-3" >
                         <div class="task d-flex align-items-center gap-3" id="task" style="background-color:${getBgColor(val.priority)}">
@@ -40,9 +40,9 @@ function finishedTaskUpdate(){
     })
 }
 
-function pendingTaskUpdate(){
+function pendingTaskUpdate() {
     taskBox.innerHTML = "";
-    pendingTask.forEach((val, idx)=>{
+    pendingTask.forEach((val, idx) => {
         taskBox.innerHTML += `
                     <div class="d-flex align-items-center h-100 pb-3">
                         <div class="task d-flex align-items-center gap-3" id="task" style="background-color:${getBgColor(val.priority)}">
@@ -56,61 +56,64 @@ function pendingTaskUpdate(){
 
     checkBoxListner()
 }
-function getPriority(priorityNum){
-    switch(priorityNum){
+function getPriority(priorityNum) {
+    switch (priorityNum) {
         case 1:
             return "Low";
         case 2:
             return "medium";
         case 3:
             return "high";
-    }    
+    }
 }
-function getBgColor(bgColor){
-    switch(bgColor){
+function getBgColor(bgColor) {
+    switch (bgColor) {
         case 1:
             return "#a5a182";
         case 2:
             return "#d5a413";
         case 3:
             return "#d78c28";
-    }    
+    }
 }
-function checkBoxListner(){
+function checkBoxListner() {
     let checkBox = document.querySelectorAll(".check")
     let lineThrough = document.querySelectorAll(".text")
     let priorityBg = document.querySelectorAll(".priority")
-    checkBox.forEach((check, idx)=>{
-        check.addEventListener("change",(e)=>{
-         setTimeout(()=>{
-            finishedTask.push(pendingTask[idx])
-            pendingTask.splice(idx, 1)
-            finishedTaskUpdate();
-            pendingTaskUpdate();
-         }, 500)
+    checkBox.forEach((check, idx) => {
+        check.addEventListener("change", (e) => {
+            setTimeout(() => {
+                finishedTask.push(pendingTask[idx])
+                pendingTask.splice(idx, 1)
+                finishedTaskUpdate();
+                pendingTaskUpdate();
+            }, 500)
 
-            if(e.target.checked == true){
-                lineThrough[idx].style.textDecoration = "line-through"; 
+            if (e.target.checked) {
+                lineThrough[idx].style.textDecoration = "line-through";
                 priorityBg[idx].style.textDecoration = "line-through";
 
-            }else{
-                lineThrough[idx].style.textDecoration = "none" 
+            } else {
+                lineThrough[idx].style.textDecoration = "none"
                 priorityBg[idx].style.textDecoration = "none"
             }
+
+
+
         })
     })
-   }
+}
 
 
-pendingBtn.forEach((btn)=>{
-    btn.addEventListener("click", (e)=>{
+pendingBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
         pos[0].classList.toggle("translate100")
         pos[1].classList.toggle("translate100")
-        pendingBtn.forEach((btn)=>{
+        pendingBtn.forEach((btn) => {
             btn.classList.remove("active")
         })
         btn.classList.add("active")
-        
+
     })
 })
 addIcon.addEventListener("click", () => {
@@ -122,36 +125,45 @@ submitBtn.addEventListener("click", () => {
         Swal.fire({
             title: "Enter Valid Input",
             icon: "warning"
-            
+
         }).then(() => {
             popBox.classList.toggle("visible")
         });
         return;
     };
-    
+
     let taskObj = {
         task: taskInput.value,
         priority: parseInt(priority.value),
     }
 
     pendingTask.push(taskObj)
-   pendingTaskUpdate()
+    pendingTaskUpdate()
 
-    
- 
+
+
     popBox.classList.toggle("visible")
     taskInput.value = "";
-    // let option = document.querySelector(".option.selected")
-    // let option2 = document.querySelector(`.option[data-value="0"]`)
-    // option.classList.remove("selected")
-    // option2.classList.add("selected")
-    // option2.classList.remove("focus")
+    let select = document.querySelector(`.option[data-value="0"]`)
+    let option = document.querySelectorAll(".option")
+    let current = document.querySelector(".current")
+
+    option.forEach((option) => {
+        option.classList.remove("selected");
+        option.classList.remove("focus");
+        select.classList.add("selected");
+        select.classList.add("focus");
+        current.innerHTML = "Select option";
+    })
+
+
+
 })
 
 
 
-         
-        
+
+
 
 
 

@@ -20,9 +20,9 @@ section{
     
 }
 .todo-app .todo-header{
-    background-image: url('../images/premium_vector-1702386499779-d217708afa9f.avif');
+    background-image: url('../images/undraw_programming_65t2.png');
     height: 40% ;
-    background-position:center -10px;
+    background-position:center 0px;
     background-repeat: no-repeat;
     background-size: cover;
 }
