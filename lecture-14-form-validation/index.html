@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Login</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Sign in to GitHub</h1>
+            <form action="#" method="get" id="form">
+                <div class="textbox ">
+                    <input type="text" class="" autocomplete="off" placeholder="Username or email address" name="username">
+                    <p class="err-text hidden">Enter Valid Email !</p>
+                </div>
+                <div class="textbox">
+                    <input type="password" autocomplete="off" placeholder="Password" name="password">
+                    <p class="err-text hidden">Enter Valid password !</p>
+                </div>
+                <button type="submit" value="Sign in" class="btn">Sign in</button>
+                <div class="footer">
+                    <a href="#">Forgot password?</a>
+                    <p>New to GitHub? <a href="#">Create an account</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        let inputs = document.querySelectorAll(".textbox input")
+        let submitBtn = document.querySelector(".btn")
+        let form = document.getElementById("form")
+        let errText = document.querySelectorAll(".err-text")
+        let valid = true;
+
+        form.addEventListener("submit",(e)=>{
+            e.preventDefault()
+            inputs.forEach((input)=>{
+                let nextElement = input.nextElementSibling;
+            if(input.value.trim() === ""){
+                input.classList.add("danger");
+                nextElement.classList.remove("hidden")
+                valid = false;
+          
+                input.addEventListener("input",()=>{
+                    input.classList.remove("danger")
+                    nextElement.classList.add("hidden")
+                })
+            }
+            
+            form.submit();
+        })
+
+    })
+   
+    </script>
+</body>
+</html>
