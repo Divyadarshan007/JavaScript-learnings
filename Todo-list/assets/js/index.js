@@ -153,7 +153,7 @@ submitBtn.addEventListener("click", () => {
         option.classList.remove("focus");
         select.classList.add("selected");
         select.classList.add("focus");
-        current.innerHTML = "Select option";
+        current.innerHTML = "Select Priority";
     })
 
 
