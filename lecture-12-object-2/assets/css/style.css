@@ -2,13 +2,11 @@
     list-style: none;
     text-decoration: none;
 }
-
 section{
     background-image: url('../images/body_brickwall.png');
     height: 100%;
     padding-block: 100px !important;
 }
-
 .quote-card{
     background-color: #fff;
     padding: 10px;

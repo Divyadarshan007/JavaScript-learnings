@@ -104,7 +104,6 @@ function checkBoxListner() {
     })
 }
 
-
 pendingBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
         pos[0].classList.toggle("translate100")
@@ -159,11 +158,3 @@ submitBtn.addEventListener("click", () => {
 
 
 })
-
-
-
-
-
-
-
-
