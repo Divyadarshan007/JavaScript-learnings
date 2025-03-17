@@ -1,0 +1,79 @@
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #2b26c6, #0e064b);
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Input Field */
+  .countdown {
+    padding: 10px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    width: 100px;
+    outline: none;
+    transition: 0.3s;
+  }
+  
+  .countdown:focus {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Timer Display */
+  .time {
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    margin: 20px 0;
+    font-weight: bold;
+  }
+  
+  .timer, .colon {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Buttons */
+  .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    backdrop-filter: blur(10px);
+  }
+  
+  button:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  

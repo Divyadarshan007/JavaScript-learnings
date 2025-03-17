@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <section class="countdown-container">
+      <input type="number" name="time" id="h" class="countdown" min="0" placeholder="HH">
+      <input type="number" name="time" id="m" class="countdown" min="0" placeholder="MM">
+      <input type="number" name="time" id="s" class="countdown" min="0" placeholder="SS">
+    </section>
+  
+    <section class="timer-container">
+      <div class="time" id="timeDisplay">
+        <span class="timer" id="hours">00</span>
+        <span class="colon">:</span>
+        <span class="timer" id="minute">00</span>
+        <span class="colon">:</span>
+        <span class="timer" id="second">00</span>
+      </div>
+    </section>
+  
+    <section class="buttons">
+      <button id="start" aria-label="Start Timer">Start</button>
+      <button id="stop" aria-label="Stop Timer">Stop</button>
+      <button id="reset" aria-label="Reset Timer">Reset</button>
+    </section>
+  
+    <script>
+        let timer;
+        let startBtn = document.getElementById("start")
+        let flag = false;
+
+        startBtn.addEventListener("click", ()=>{
+            if(flag)return;
+            startTimer();
+        })
+
+        const startTimer = ()=>{
+            let h = parseInt(document.getElementById("h").value) * 3600;
+            let m = parseInt(document.getElementById("m").value) * 60;
+            let s = parseInt(document.getElementById("s").value);
+
+            let totalSeconds =  h + m + s;
+
+            timer = setInterval(()=>{
+               if(totalSeconds>=0){
+                flag = true;
+                totalSeconds--;
+                let hrs = Math.floor(totalSeconds / 3600);
+                let min = Math.floor((totalSeconds % 3600) / 60);
+                let sec = ((totalSeconds % 3600) % 60);
+                hrs = hrs.toString().padStart(2, '0')
+                min = min.toString().padStart(2, '0')
+                sec = sec.toString().padStart(2, '0')
+                document.getElementById("hours").innerText = hrs;
+                document.getElementById("minute").innerText = min;
+                document.getElementById("second").innerText = sec;
+               }else{
+                clearInterval(timer)
+               }
+            }, 1000)
+
+        }
+    </script>
+</body>
+</html>
