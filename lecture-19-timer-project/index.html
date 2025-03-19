@@ -170,9 +170,10 @@
 
         confetiTimer = setInterval(() => {
           jsConfetti.addConfetti()
-          document.getElementById("cheerAudio").currentTime = 0;
-          document.getElementById("cheerAudio").play();
+        
         }, 1000)
+        document.getElementById("cheerAudio").currentTime = 0;
+        document.getElementById("cheerAudio").play();
 
       }
     }
