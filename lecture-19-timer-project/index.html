@@ -9,63 +9,172 @@
 </head>
 
 <body>
-  <section class="countdown-container">
-    <input type="number" name="time" id="h" class="countdown" min="0" placeholder="HH">
-    <input type="number" name="time" id="m" class="countdown" min="0" placeholder="MM">
-    <input type="number" name="time" id="s" class="countdown" min="0" placeholder="SS">
-  </section>
+  <div class="main-box">
+    <canvas id="custom_canvas"></canvas>
+    <section class="countdown-container">
+      <input type="number" name="time" id="h" class="countdown" min="0" placeholder="HH">
+      <input type="number" name="time" id="m" class="countdown" min="0" placeholder="MM">
+      <input type="number" name="time" id="s" class="countdown" min="0" placeholder="SS">
+    </section>
 
-  <section class="timer-container">
-    <div class="time" id="timeDisplay">
-      <span class="timer" id="hours">00</span>
-      <span class="colon">:</span>
-      <span class="timer" id="minute">00</span>
-      <span class="colon">:</span>
-      <span class="timer" id="second">00</span>
-    </div>
-  </section>
+    <section class="timer-container">
+      <div class="time" id="timeDisplay">
+        <span class="timer" id="hours">00</span>
+        <span class="colon">:</span>
+        <span class="timer" id="minute">00</span>
+        <span class="colon">:</span>
+        <span class="timer" id="second">00</span>
+      </div>
+    </section>
 
-  <section class="buttons">
-    <button id="start" aria-label="Start Timer">Start</button>
-    <button id="stop" aria-label="Stop Timer">Stop</button>
-    <button id="reset" aria-label="Reset Timer">Reset</button>
-  </section>
-
+    <section class="buttons">
+      <button id="start" aria-label="Start Timer">Start</button>
+      <button id="stop" aria-label="Stop Timer">Stop</button>
+      <button id="reset" aria-label="Reset Timer">Reset</button>
+    </section>
+  </div>
+  <audio id="cheerAudio" src="./assets/audio/crowd-cheers-312833.mp3"></audio>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
   <script>
     let timer;
     let startBtn = document.getElementById("start")
+    let stopBtn = document.getElementById("stop")
+    let resetBtn = document.getElementById("reset")
+    
     let flag = false;
+    let totalSeconds;
+    let confetiTimer;
+    let quotes = [
+      {
+        quote: "You miss 100% of the shots you don’t take.",
+        author: "Wayne Gretzky"
+      },
+      {
+        quote: "In the middle of every difficulty lies opportunity.",
+        author: "Albert Einstein"
+      },
+      {
+        quote: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+        author: "Winston Churchill"
+      },
+      {
+        quote: "Be yourself; everyone else is already taken.",
+        author: "Oscar Wilde"
+      },
+      {
+        quote: "The only way to do great work is to love what you do.",
+        author: "Steve Jobs"
+      },
+      {
+        quote: "It is never too late to be what you might have been.",
+        author: "George Eliot"
+      },
+      {
+        quote: "The best way to predict the future is to create it.",
+        author: "Abraham Lincoln"
+      },
+      {
+        quote: "Life isn’t about finding yourself. Life is about creating yourself.",
+        author: "George Bernard Shaw"
+      },
+      {
+        quote: "Do one thing every day that scares you.",
+        author: "Eleanor Roosevelt"
+      },
+      {
+        quote: "Your time is limited, so don’t waste it living someone else’s life.",
+        author: "Steve Jobs"
+      },
+      {
+        quote: "You don’t have to be great to start, but you have to start to be great.",
+        author: "Zig Ziglar"
+      },
+      {
+        quote: "The harder you work for something, the greater you’ll feel when you achieve it.",
+        author: " Anonymous"
+      },
+    ]
 
     startBtn.addEventListener("click", () => {
       if (flag) return;
       startTimer();
     })
+    stopBtn.addEventListener("click", () => {
+      clearInterval(timer)
+
+      if (timer) {
+        clearInterval(timer)
+        timer = null;
+      } else {
+        timer = setInterval(updateTime, 1000)
+      }
+    })
+
+    resetBtn.addEventListener("click", () => {
+      document.getElementById("h").value = "";
+      document.getElementById("m").value = "";
+      document.getElementById("s").value = "";
+      document.getElementById("hours").innerText = "00";
+      document.getElementById("minute").innerText = "00";
+      document.getElementById("second").innerText = "00";
+      clearInterval(timer)
+      flag = false;
+
+    })
 
     const startTimer = () => {
-      let h = parseInt(document.getElementById("h").value) || 0 ;
+      let h = parseInt(document.getElementById("h").value) || 0;
       let m = parseInt(document.getElementById("m").value) || 0;
       let s = parseInt(document.getElementById("s").value) || 0;
 
-      let totalSeconds = (h * 3600) + (m * 60) + s;
+      totalSeconds = (h * 3600) + (m * 60) + s;
 
-      timer = setInterval(() => {
-        if (totalSeconds >= 0) {
-          flag = true;
-          totalSeconds--;
-          let hrs = Math.floor(totalSeconds / 3600);
-          let min = Math.floor((totalSeconds % 3600) / 60);
-          let sec = ((totalSeconds % 3600) % 60);
-          hrs = hrs.toString().padStart(2, '0')
-          min = min.toString().padStart(2, '0')
-          sec = sec.toString().padStart(2, '0')
-          document.getElementById("hours").innerText = hrs;
-          document.getElementById("minute").innerText = min;
-          document.getElementById("second").innerText = sec;
-        } else {
-          clearInterval(timer)
-        }
-      }, 1000)
+      timer = setInterval(updateTime, 1000)
 
+    }
+
+    const updateTime = () => {
+      if (totalSeconds >= 0) {
+        flag = true;
+        let hrs = Math.floor(totalSeconds / 3600);
+        let min = Math.floor((totalSeconds % 3600) / 60);
+        let sec = ((totalSeconds % 3600) % 60);
+        hrs = hrs.toString().padStart(2, '0')
+        min = min.toString().padStart(2, '0')
+        sec = sec.toString().padStart(2, '0')
+        document.getElementById("hours").innerText = hrs;
+        document.getElementById("minute").innerText = min;
+        document.getElementById("second").innerText = sec;
+        totalSeconds--;
+      } else {
+        clearInterval(timer)
+        flag = false;
+        document.getElementById("h").value = "";
+        document.getElementById("m").value = "";
+        document.getElementById("s").value = "";
+        let val = parseInt(Math.random() * 10)
+        Swal.fire({
+          title: `${quotes[val].quote}`,
+          text: `- ${quotes[val].author}`,
+        }).then(()=>{
+          clearInterval(confetiTimer)
+          
+        });
+        
+       
+        const canvas = document.getElementById('custom_canvas')
+        const button = document.getElementById('button')
+
+        const jsConfetti = new JSConfetti({ canvas })
+
+        confetiTimer = setInterval(() => {
+          jsConfetti.addConfetti()
+          document.getElementById("cheerAudio").currentTime = 0;
+          document.getElementById("cheerAudio").play();
+        }, 1000)
+
+      }
     }
   </script>
 </body>

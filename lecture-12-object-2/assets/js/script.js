@@ -52,6 +52,7 @@ let quotes = [
 ]
 
 
+
 quotes.forEach((val, idx) => {
 
     let bgColor = idx % 2 == 0 ? "#bf1e2e" : "#a7a8ac";
