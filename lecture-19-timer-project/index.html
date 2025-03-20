@@ -41,7 +41,7 @@
     let startBtn = document.getElementById("start")
     let stopBtn = document.getElementById("stop")
     let resetBtn = document.getElementById("reset")
-    
+
     let flag = false;
     let totalSeconds;
     let confetiTimer;
@@ -96,17 +96,41 @@
       },
     ]
 
+    let count = 0;
+    let newFlag = false;
     startBtn.addEventListener("click", () => {
+      let h = parseInt(document.getElementById("h").value) || 0;
+      let m = parseInt(document.getElementById("m").value) || 0;
+      let s = parseInt(document.getElementById("s").value) || 0;
+
       if (flag) return;
+      if (h == 0 && m == 0 && s == 0) return;
       startTimer();
+      count++
+      newFlag = true;
     })
     stopBtn.addEventListener("click", () => {
       clearInterval(timer)
+      let h = parseInt(document.getElementById("h").value) || 0;
+      let m = parseInt(document.getElementById("m").value) || 0;
+      let s = parseInt(document.getElementById("s").value) || 0;
+      if (h == 0 && m == 0 && s == 0) return;
+
+      if (newFlag) {
+        if (count % 2 == 0) {
+          stopBtn.innerHTML = "Stop"
+          count++
+        } else {
+          stopBtn.innerHTML = "Resume"
+          count++
+        }
+      }
 
       if (timer) {
         clearInterval(timer)
         timer = null;
       } else {
+        if (!flag) return
         timer = setInterval(updateTime, 1000)
       }
     })
@@ -120,6 +144,9 @@
       document.getElementById("second").innerText = "00";
       clearInterval(timer)
       flag = false;
+      newFlag = false; 
+      count = 0
+      stopBtn.innerHTML = "Stop"
 
     })
 
@@ -157,12 +184,13 @@
         Swal.fire({
           title: `${quotes[val].quote}`,
           text: `- ${quotes[val].author}`,
-        }).then(()=>{
+        }).then(() => {
           clearInterval(confetiTimer)
-          
+          newFlag = false;
+
         });
-        
-       
+
+
         const canvas = document.getElementById('custom_canvas')
         const button = document.getElementById('button')
 
@@ -170,7 +198,7 @@
 
         confetiTimer = setInterval(() => {
           jsConfetti.addConfetti()
-        
+
         }, 1000)
         document.getElementById("cheerAudio").currentTime = 0;
         document.getElementById("cheerAudio").play();
