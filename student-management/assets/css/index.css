@@ -115,4 +115,14 @@ table caption {
     margin-bottom: 10px;
     color: #333;
 }
+.alert_message{
+    color: red;
+    font-size: 14px;
+}
 
+.hidden{
+    display: none;
+}
+.danger{
+    border: 1px solid red;
+}

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registration Form</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 
@@ -13,29 +14,42 @@
     <div class="form-container">
         <h2>Student Registration Form</h2>
         <form id="studentForm">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            <div class="d-flex flex-column">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" class="input-box" name="name" placeholder="Enter your full name">
+                <p class="alert_message m-0 hidden">Enter Name !</p>
+            </div>
 
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            <div class="d-flex flex-column">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" class="input-box " placeholder="Enter your email">
+                <p class="alert_message m-0 hidden">Enter Email !</p>
+            </div>
 
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" required>
+            <div class="d-flex flex-column">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" class="input-box " >
+                <p class="alert_message m-0 hidden">Enter Date Of Birth !</p>
+            </div>
 
             <label>Gender:</label>
-            <div class="flex m-10 justify-start">
+            <div class="flex justify-start">
                 <div>
-                    <label for="male">Male</label>
-                    <input type="radio" id="male" name="gender" value="Male" required>
+                    <label for="male" class="m-0">Male</label>
+                    <input type="radio" class="input-box" id="male" name="gender" value="Male" >
                 </div>
                 <div>
                     <label for="female">Female</label>
-                    <input type="radio" id="female" name="gender" value="Female">
+                    <input type="radio" id="female" class="input-box" name="gender" value="Female">
                 </div>
             </div>
+            <p class="alert_message m-0 hidden">Select Gender !</p>
 
-            <label for="address">Address:</label>
-            <textarea id="address" name="address" rows="4" required placeholder="Enter your address"></textarea>
+            <div class="d-flex flex-column">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4" class="input-box "  placeholder="Enter your address"></textarea>
+                <p class="alert_message m-0 hidden">address should not be empty !</p>
+            </div>
 
             <button type="submit">Submit</button>
         </form>
@@ -58,10 +72,6 @@
 
         </tbody>
     </table>
-
-
-
-
     <script src="./assets/js/script.js"></script>
 </body>
 
