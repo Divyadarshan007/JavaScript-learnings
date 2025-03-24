@@ -20,8 +20,8 @@
             </div>
 
             <div class="timer">
-                <div class="row">
-                    <div class="col-6">
+                <div class="row flex-wrap-reverse">
+                    <div class="col-sm-6 col-12">
                         <div class="left-part">
                             <div>
                                 <span class="text-white text-start fs-1">Timer</span>
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-sm-6 col-12">
                         <div class="right-part">
                             <div class="circle">
                                 <span class="playBtn" id="playBtn"><i class="fa-solid fa-play"></i></span>
@@ -61,7 +61,6 @@
     </section>
     <!-- <script src="./assets/js/"></script> -->
 
-    <audio id="cheerAudio" src="./assets/audio/crowd-cheers-312833.mp3"></audio>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
     <script>
@@ -225,8 +224,7 @@
                     jsConfetti.addConfetti()
 
                 }, 1000)
-                document.getElementById("cheerAudio").currentTime = 0;
-                document.getElementById("cheerAudio").play();
+                
                 progress = 564;
                 rotateSec.style.strokeDashoffset = progress
                 totalSecond = 0;

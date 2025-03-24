@@ -1,13 +1,17 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
+    
+    height: 100vh;
+    margin: 0;
+}   
+
+section{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-}   
+}
 
 .flex{
     display: flex;
@@ -63,10 +67,6 @@ input, textarea {
     resize: none;
 }
 
-input[type="radio"] {
-    width: auto;
-    margin: 0 6px 0 0;
-}
 
 button {
     padding: 12px;
@@ -84,7 +84,9 @@ button:hover {
 }
 
 table {
-    width: 80%;
+    width: 80% !important;
+    min-width: 400px; /* Prevents the table from being too small */
+    border-collapse: collapse;
     margin-top: 20px;
     border-collapse: collapse;
     text-align: left;
@@ -124,5 +126,10 @@ table caption {
     display: none;
 }
 .danger{
-    border: 1px solid red;
+    border: 1px solid red !important;
 }
+.table-scroll{
+    width: 100%;
+    overflow-x: auto; 
+}
+
