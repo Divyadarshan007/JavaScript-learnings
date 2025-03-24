@@ -28,7 +28,7 @@
 
             <div class="d-flex flex-column">
                 <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" class="input-box " >
+                <input type="date" id="dob" name="dob" class="input-box ">
                 <p class="alert_message m-0 hidden">Enter Date Of Birth !</p>
             </div>
 
@@ -36,18 +36,19 @@
             <div class="flex justify-start">
                 <div>
                     <label for="male" class="m-0">Male</label>
-                    <input type="radio" class="input-box" id="male" name="gender" value="Male" >
+                    <input type="radio" class="input-box" id="male" name="gender" value="Male">
                 </div>
                 <div>
                     <label for="female">Female</label>
                     <input type="radio" id="female" class="input-box" name="gender" value="Female">
                 </div>
             </div>
-            <p class="alert_message m-0 hidden">Select Gender !</p>
+            <p class="alert_message m-0 hidden genderBox">Select Gender !</p>
 
             <div class="d-flex flex-column">
                 <label for="address">Address:</label>
-                <textarea id="address" name="address" rows="4" class="input-box "  placeholder="Enter your address"></textarea>
+                <textarea id="address" name="address" rows="4" class="input-box"
+                    placeholder="Enter your address"></textarea>
                 <p class="alert_message m-0 hidden">address should not be empty !</p>
             </div>
 
@@ -72,7 +73,95 @@
 
         </tbody>
     </table>
-    <script src="./assets/js/script.js"></script>
+
+    <script>
+        let inputBox = document.querySelectorAll(".input-box")
+let genderBox = document.querySelector(".genderBox")
+
+        class Student {
+            constructor(name, email, dob, gender, address) {
+                this.name = name;
+                this.email = email;
+                this.dob = dob;
+                this.gender = gender;
+                this.address = address;
+            }
+        }
+        function editStudent(button) {
+            let row = button.parentElement.parentElement.parentElement;
+
+            let name = row.cells[0].innerText
+            let email = row.cells[1].innerText
+            let dob = row.cells[2].innerText
+            let gender = row.cells[3].innerText
+            let address = row.cells[4].innerText
+
+            document.getElementById("name").value = name
+            document.getElementById("email").value = email
+            document.getElementById("dob").value = dob
+            document.querySelector(`input[name="gender"][value="${gender}"]`).checked = true;
+            document.getElementById("address").value = address;
+
+            row.remove()
+
+        }
+        function deleteRow(button) {
+            let row = button.parentElement.parentElement.parentElement;
+            row.remove();
+        }
+
+        let form = document.querySelector("#studentForm")
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let dob = document.getElementById("dob").value;
+            let gender = document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : "";
+            let address = document.getElementById("address").value;
+            inputBox.forEach((val) => {
+                
+                let nexElement = val.nextElementSibling;
+                if (val.value.trim() == "") {
+                    val.classList.add("danger")
+                    nexElement.classList.remove("hidden")
+                }
+                
+          
+            })
+            if (gender == "") {
+                // genderBox.classList.add("danger")
+                genderBox.classList.remove("hidden")
+                return
+            }
+            
+            let student = new Student(name, email, dob, gender, address)
+            let table = document.getElementsByTagName("tbody")[0]
+            let tableRow = document.querySelectorAll("#detailsTable tbody tr")
+            let flag = false;
+            tableRow.forEach((val) => {
+                let existingEmail = val.cells[1].innerText;
+                if (existingEmail == email) {
+                    alert("email is already registered !")
+                    flag = true;
+                }
+
+            })
+            if (flag) return;
+
+            let row = table.insertRow()
+            row.insertCell(0).innerText = student.name;
+            row.insertCell(1).innerText = student.email;
+            row.insertCell(2).innerText = student.dob;
+            row.insertCell(3).innerText = student.gender;
+            row.insertCell(4).innerText = student.address;
+            row.insertCell(5).innerHTML = `<div class="flex justify-between gap-20"><button class="w-100" onclick="editStudent(this)">edit</button><button class="w-100" onclick="deleteRow(this)">delete</button></div>`;
+
+            form.reset();
+        })
+
+    </script>
 </body>
 
 </html>
