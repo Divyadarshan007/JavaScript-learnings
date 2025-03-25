@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1 class="text-center my-3">Student Detail</h1>
+
+    <div class="container">
+        <table class="table table-responsive table-dark table-hover ">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                    <th>Gender</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="studentBody">
+
+            </tbody>
+        </table>
+
+        <button type="button" onclick='window.history.back()'>back</button>
+    </div>
+
+    <!-- <script type="text/javascript" src="./assets/js/script.js"></script> -->
+
+    <script>
+        let studentBody = document.getElementById("studentBody");
+        studentArr = JSON.parse(localStorage.getItem("students"))
+        console.log(studentArr)
+        studentArr.forEach((val) => {
+            studentBody.innerHTML += `
+                <tr>
+                    <td>${val.name}</td>
+                    <td>${val.email}</td>
+                    <td>${val.course}</td>
+                    <td>${val.gender}</td>
+                    <td><button class="btn btn-success">update</button><button class="btn btn-danger">delete</button></td>
+                </tr>
+`
+        })
+
+    </script>
+</body>
+
+</html

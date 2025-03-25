@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="container w-50">
+        <h1 class="text-center my-3">Form Registration</h1>
+        <form action="">
+            <div class="my-3">
+                <label for="">Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Enter name">
+            </div>
+            <div class="my-3">
+                <label for="">Email;</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter email">
+            </div>
+            <div class="my-3">
+                <label for="">Course</label>
+                <select name="course" title="course" id="course" class="form-select">
+                    <option value="">Select course</option>
+                    <option value="1">FSD</option>
+                    <option value="2">UI/UX</option>
+                    <option value="3">AI/ML</option>
+                </select>
+            </div>
+            <div class="my-3">
+                <label for="">Gender</label>
+                <input type="radio" id="male" name="gender" value="male" >
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+            </div>
+
+            <div>
+                <button type="button" id="submitBtn" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="./assets/js/script.js"></script>
+</body>
+
+</html>
