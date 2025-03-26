@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <h1 class="text-center my-3">Student Detail</h1>
+    <h1 class="text-center my-3" id="heading">Student Detail</h1>
 
     <div class="container">
         <table class="table table-responsive table-dark table-hover ">
-            <thead>
+            <thead id="studentHead">
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
@@ -27,28 +27,9 @@
             </tbody>
         </table>
 
-        <button type="button" onclick='window.history.back()'>back</button>
+        <button type="button" onclick='window.history.back()' id="backBtn">back</button>
     </div>
-
-    <!-- <script type="text/javascript" src="./assets/js/script.js"></script> -->
-
-    <script>
-        let studentBody = document.getElementById("studentBody");
-        studentArr = JSON.parse(localStorage.getItem("students"))
-        console.log(studentArr)
-        studentArr.forEach((val) => {
-            studentBody.innerHTML += `
-                <tr>
-                    <td>${val.name}</td>
-                    <td>${val.email}</td>
-                    <td>${val.course}</td>
-                    <td>${val.gender}</td>
-                    <td><button class="btn btn-success">update</button><button class="btn btn-danger">delete</button></td>
-                </tr>
-`
-        })
-
-    </script>
+    <script src="./assets/js/student-details.js"></script>
 </body>
 
 </html
