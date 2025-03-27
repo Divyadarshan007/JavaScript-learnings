@@ -1,5 +1,12 @@
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    localStorage.removeItem("editIndex")
+    localStorage.removeItem("editStudent")
+
+})
 let studentBody = document.getElementById("studentBody");
-let studentHead =  document.getElementById("studentHead");
+let studentHead = document.getElementById("studentHead");
 let heading = document.getElementById("heading")
 let backBtn = document.getElementById("backBtn")
 studentArr = JSON.parse(localStorage.getItem("students"))
@@ -12,17 +19,17 @@ const display = () => {
             <td>${val.email}</td>
             <td>${val.course}</td>
             <td>${val.gender}</td>
-            <td><button class="btn btn-success" onclick="updateData(${idx})">update</button><button class="btn btn-danger" onclick="deleteData(${idx})">delete</button></td>
+            <td><button class="btn btn-success" onclick="editData(${idx})">update</button><button class="btn btn-danger" onclick="deleteData(${idx})">delete</button></td>
         </tr>
 `
     })
 
     if (studentArr.length == 0) {
         studentHead.style.display = "none";
-        heading.innerHTML = "No record found..."
+        heading.innerHTML = "No record found...";
         backBtn.style.display = "none"
     }
-    if(studentArr.length > 0){
+    if (studentArr.length > 0) {
         heading.innerHTML = "Student Detail"
 
     }
@@ -35,17 +42,21 @@ const deleteData = (idx) => {
     display()
 }
 
+const editData = (idx) => {
+    let editIndex = idx;
+    let editStudent = studentArr[idx]
+    localStorage.setItem("editIndex", editIndex);
+    localStorage.setItem("editStudent", JSON.stringify(editStudent));
+
+    window.location.href = "./index.html"
+
+}
 
 
-// const updateData = (idx) => {
-//     document.getElementById("name").value = studentArr[idx].name;
-//     document.getElementById("email").value = studentArr[idx].email;
-//     document.getElementById("course").value = studentArr[idx].course;
-//     document.querySelector(`input[type="radio"]:checked`).value = studentArr[idx].gender;
-
-// }
 
 display();
+
+
 
 
 

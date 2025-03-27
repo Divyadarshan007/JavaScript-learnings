@@ -1,3 +1,18 @@
+document.addEventListener("DOMContentLoaded", ()=>{
+    let editIndex = JSON.parse(localStorage.getItem("editIndex"))
+    let editStudent = JSON.parse(localStorage.getItem("editStudent"))
+    console.log(editIndex, editStudent)
+    if(editIndex !== null){
+        document.getElementById("name").value = editStudent.name;
+        document.getElementById("email").value = editStudent.email;
+        document.getElementById("course").value = editStudent.course;
+        document.querySelector(`input[value="${editStudent.gender}"]`).checked = true;
+    }else{
+        clear()
+    }
+
+})
+
 let submitBtn = document.getElementById("submitBtn");
 
 let studentObj;
@@ -5,7 +20,6 @@ submitBtn.addEventListener("click", () => {
     insertData();
     window.location.href = "./student-details.html"
     clear();
-
 })
 
 const clear = () => {
@@ -27,4 +41,12 @@ const insertData = () => {
 
     localStorage.setItem("students", JSON.stringify(studentArr))
 }
+
+
+
+
+
+
+
+
 
