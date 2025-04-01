@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    text-decoration: none !important;
+    list-style: none !important;
+    font-family: "Inter", sans-serif;
+}
+body{
+    background-color: #000;
+}
+header{
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    overflow: hidden;
+    background-color: #fff !important;
+}
+ul li{
+    font-size: 18px;
+    font-weight: 400;
+}
+ul li a{
+    color: #000;
+}
+.bg-image{
+    background-image: url('../images/slider-03.jpg');
+    height: 91vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat:  no-repeat;
+    position: relative;
+}
+.bg-image::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0000005d;
+}
+.main-banner-content{
+    position: relative;
+    z-index: 99;
+    max-width: 800px;
+    margin: auto;
+    height: 91vh !important;
+}
+.offWhite{
+    color: #ffffff9c;
+}
+h1{
+    font-size: 5.375rem;
+    text-align: center;
+    font-weight:bold ;
+}
+.viewBtn button{
+    padding: 15px 32px;
+    border-radius: 40px;
+    border: none;
+    font-weight: 500;
+}
+.bi-star-fill{
+    color: #facc15;
+}
+.product-card{
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #f4f4f4;
+}
