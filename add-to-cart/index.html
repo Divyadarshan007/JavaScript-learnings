@@ -29,7 +29,12 @@
                     </ul>
                 </div>
                 <div>
-                    <button type="button" title="button"><i class="bi bi-cart3"></i></button>
+                    <button type="button" class="btn btn-primary position-relative">
+                        <i class="bi bi-cart3"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="productCount">
+                            1
+                        </span>
+                      </button>
                 </div>
             </div>
         </div>
@@ -51,36 +56,15 @@
     </section>
     <section class="py-5 bg-white">
         <div class="container">
-            <div>
-                <h2 class="text-center text-black fs-1 fw-semibold text-decoration-underline">PRODUCTS</h2>
+            <div class="">
+                <h2 class="text-center my-5 pb-5 text-black fs-1 fw-semibold text-decoration-underline">PRODUCTS</h2>
             </div>
 
-            <div class="row">
-                <div class="col-4">
-                    <div class="product-card">
-                        <div>
-                            <span>14%</span>
-                            <span><i class="bi bi-star-fill"></i>3.33</span>
-                        </div>
-                        <div class="product-image">
-                            <img src="./assets/images/01-2.jpg" alt="" width="100%">
-                        </div>
-                        <div class="product-details">
-                            <div>
-                                <span>Headphones</span>
-                            </div>
-                            <h3>
-                                Acctive Noice-cancelling RW75
-                            </h3>
-                            <div>
-                                <span>$102.77</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="row gy-4" id="product-row"></div>
         </div>
     </section>
+
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
