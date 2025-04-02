@@ -1,5 +1,5 @@
 let productRow = document.getElementById("product-row")
-let productCount =  document.getElementById("productCount")
+let productCount = document.getElementById("productCount")
 
 
 let allProducts = [
@@ -67,7 +67,7 @@ allProducts.forEach((item, idx) => {
                     </h3>
                     <div class="pt-4 d-flex align-items-center justify-content-between addToCartBtn">
                         <span class="fs-4">$${item.price}</span>
-                        <button class="btn btn-secondary" id="addProduct" onclick="addToCart(${idx})">Add to cart</button>
+                        <button class="btn btn-secondary" id="addProduct" onclick="addToCart(${item.id})">Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -78,20 +78,23 @@ allProducts.forEach((item, idx) => {
 let addProduct = document.getElementById("addProduct")
 let cartProduct = JSON.parse(localStorage.getItem("cart")) || [];
 
-const addToCart = (idx)=>{  
-   
-     
-let checkItem = cartProduct.findIndex((val)=>{
-    return  val.id;
-});
-console.log(checkItem)
-    if(checkItem != -1){
-        alert("product already added")
+const addToCart = (productId) => {
+    let searchedProduct = allProducts.find((item) => {
+        return item.id == productId
+    })
+
+    let checkItem = cartProduct.findIndex((val) => {
+        return val.id == productId;
+    });
+
+    if (checkItem !== -1) {
+        alert("item already added")
         return;
     }
-    cartProduct.push(allProducts[idx])
-    localStorage.setItem("cart",JSON.stringify(cartProduct))
+    searchedProduct.quantity = 1;
+    cartProduct.push(searchedProduct)
+    localStorage.setItem("cart", JSON.stringify(cartProduct))
     productCount.innerHTML = cartProduct.length;
- 
+    
 }
- 
+productCount.innerHTML = cartProduct.length;
