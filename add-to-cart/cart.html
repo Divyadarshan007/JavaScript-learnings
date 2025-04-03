@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+
+    <style>
+    .button{
+        padding: 0px 7px;
+    }
+    </style>
 </head>
 
 <body>
@@ -40,32 +46,23 @@
             </div>
         </div>
     </header>
-    <section class="bg-image">
+
+    <section>
         <div class="container">
-            <div class="main-banner-content d-flex align-items-center">
-                <div class="">
-                    <p class="text-white fs-3 text-center">Highest Quality</p>
-                    <h1 class="text-white">High Performance and Elegant Design</h1>
-                    <p class="offWhite text-center fs-5">Sleek designs, cutting-edge tech, unmatched performance for
-                        modern living</p>
-                    <div class="d-flex justify-content-center viewBtn">
-                        <button type="button">View Headphones</button>
+            <div class="row">
+                <div class="col-10">
+                    <div class="border-bottom border-top py-3">
+                        <div class="row" id="show-cart">
+                           
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="py-5 bg-white">
-        <div class="container">
-            <div class="">
-                <h2 class="text-center my-5 pb-5 text-black fs-1 fw-semibold text-decoration-underline">PRODUCTS</h2>
-            </div>
+  
 
-            <div class="row gy-4" id="product-row"></div>
-        </div>
-    </section>
-
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/cart.js"></script>
 </body>
 
 </html>

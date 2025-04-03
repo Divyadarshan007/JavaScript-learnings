@@ -6,13 +6,16 @@
     font-family: "Inter", sans-serif;
 }
 body{
-    background-color: #000;
+    /* background-color: #000; */
 }
 header{
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     overflow: hidden;
     background-color: #fff !important;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 ul li{
     font-size: 18px;
@@ -84,4 +87,9 @@ h1{
 .addToCartBtn button{
     padding: 8px 23px;
      border-radius: 30px;
+}
+
+.cart-image{
+    width: 100px;
+    height: 100px;
 }
