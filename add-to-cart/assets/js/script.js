@@ -1,14 +1,12 @@
 let productRow = document.getElementById("product-row")
 let productCount = document.getElementById("productCount")
-
-
 let allProducts = [
     {
         id: 1,
         name: "Active Noice-cancelling RW75",
         image: "./assets/images/01-2.jpg",
         category: "Headphones",
-        price: 102,
+        price: 102.77,
         sellingPercent: 14
     },
     {
@@ -16,7 +14,7 @@ let allProducts = [
         name: "MH40 L_UNIFORM Headphones",
         image: "./assets/images/01-28.jpg",
         category: "Bluetooth Headphones",
-        price: 102,
+        price: 88.45,
         sellingPercent: 50
     },
     {
@@ -24,7 +22,7 @@ let allProducts = [
         name: "W75 Automobili Lamborghini Headphones",
         image: "./assets/images/01-49.jpg",
         category: "Headphones",
-        price: 102,
+        price: 247.55,
         sellingPercent: 24
     },
     {
@@ -32,7 +30,7 @@ let allProducts = [
         name: "Wireless Gaming Headphones DM420",
         image: "./assets/images/01-50.jpg",
         category: "Headphones",
-        price: 102,
+        price: 147.88,
         sellingPercent: 35
     },
     {
@@ -40,7 +38,7 @@ let allProducts = [
         name: "Wireless Gaming Headphones MS920",
         image: "./assets/images/01-51.jpg",
         category: "Headphones",
-        price: 102,
+        price: 85.66,
         sellingPercent: 19
     }
 
@@ -67,7 +65,7 @@ allProducts.forEach((item, idx) => {
                     </h3>
                     <div class="pt-4 d-flex align-items-center justify-content-between addToCartBtn">
                         <span class="fs-4">$${item.price}</span>
-                        <button class="btn btn-secondary" id="addProduct" onclick="addToCart(${item.id})">Add to cart</button>
+                        <button class="btn btn-dark" id="addProduct" onclick="addToCart(${item.id})">Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -95,6 +93,14 @@ const addToCart = (productId) => {
     cartProduct.push(searchedProduct)
     localStorage.setItem("cart", JSON.stringify(cartProduct))
     productCount.innerHTML = cartProduct.length;
+    Swal.fire({
+        position: "bottom-end",
+        toast: true,
+        icon: "success",
+        title: "Item added to cart.",
+        showConfirmButton: true,
+        timer: 2500
+    });
     
 }
 productCount.innerHTML = cartProduct.length;
