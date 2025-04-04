@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxrio</title>
+    <title>Shop – Fynode – Electronis Store eCommerce Theme</title>
     <link rel="icon" href="">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" href="./assets/images/cropped-fynode-thumbnail-32x32.png">
 </head>
 
 <body>
@@ -18,7 +19,7 @@
                 <div class="logo">
                     <img src="./assets/images/logo-black.png" alt="" width="100">
                 </div>
-                <div class="menus ">
+                <div class="menus d-lg-flex d-none">
                     <ul class="d-flex gap-4 p-0 m-0">
                         <li><a href="">Home</a></li>
                         <li><a href="">Shop</a></li>
@@ -28,14 +29,36 @@
                         <li><a href="">Contact</a></li>
                     </ul>
                 </div>
-                <div>
-                    <button type="button" class="border-0 bg-transparent position-relative" onclick='window.location = "./cart.html"'>
-                        <i class="bi bi-cart3 fs-3"></i>
-                        <span class="position-absolute pos translate-middle badge rounded-pill bg-dark"
-                            id="productCount">
-                            0
-                        </span>
-                    </button>
+
+
+                <div class="d-flex gap-4 align-items-center">
+                    <div>
+                        <button class="btn btn-dark d-lg-none d-flex" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i
+                                class="bi bi-list"></i></button>
+                        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1"
+                            id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <p>Try scrolling the rest of the page to see this option in action.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" class="border-0 bg-transparent position-relative"
+                            onclick='window.location = "./cart.html"'>
+                            <i class="bi bi-cart3 fs-3"></i>
+                            <span class="position-absolute pos translate-middle badge rounded-pill bg-dark"
+                                id="productCount">
+                                0
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,17 +68,17 @@
             <div class="main-banner-content d-flex align-items-center">
                 <div class="">
                     <p class="text-white fs-3 text-center">Highest Quality</p>
-                    <h1 class="text-white">High Performance and Elegant Design</h1>
+                    <h1 class="text-white display-1 fw-bold">High Performance and Elegant Design</h1>
                     <p class="offWhite text-center fs-5">Sleek designs, cutting-edge tech, unmatched performance for
                         modern living</p>
                     <div class="d-flex justify-content-center viewBtn">
-                        <button type="button">View Headphones</button>
+                        <button type="button"><a href="#product" class="text-dark">View Headphones</a></button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="py-5 bg-white">
+    <section class="py-5 bg-white" id="product">
         <div class="container">
             <div class="">
                 <h2 class="text-center my-5 pb-5 text-black fs-1 fw-semibold text-decoration-underline">PRODUCTS</h2>
@@ -65,6 +88,10 @@
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>

@@ -108,11 +108,26 @@ h1{
 .offer-update{
     padding: 20px;
     margin: 60px 0;
-    border: 1px solid #94949d;
+    border: 1px solid #e6e6e6;
     border-radius: 10px;
+    background-color: #fafafa;
 }
 
 .back-and-border{
     background-color: #f0fdf4;
     border: 1px solid #149644;
+}
+
+.rounded-10{
+    border-radius: 10px;
+}
+.border-30{
+    border-radius: 30px;
+}
+
+@media (max-width:576px) {
+    .cart-image img{
+        width: 100%;
+    }
+   
 }

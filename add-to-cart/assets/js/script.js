@@ -40,6 +40,14 @@ let allProducts = [
         category: "Headphones",
         price: 85.66,
         sellingPercent: 19
+    },
+    {
+        id: 6,
+        name: "Smart EEG Active Noise-Cancelling Neuro",
+        image: "./assets/images/01-41-1024x1024.jpg",
+        category: "Headphones",
+        price: 48.90,
+        sellingPercent: 35
     }
 
 ]
@@ -47,10 +55,10 @@ let allProducts = [
 
 allProducts.forEach((item, idx) => {
     productRow.innerHTML += `
-        <div class="col-4">
+        <div class="col-lg-4 col-md-6 col-12">
             <div class="product-card">
                 <div class="d-flex justify-content-between align-items-center">
-                    <span>${item.sellingPercent}%</span>
+                    <span class="bg-dark fs-7 text-light py-1 px-3 border-30">${item.sellingPercent}%</span>
                     <span class="py-1 d-flex gap-1 px-3 bg-white ratings"><i class="bi bi-star-fill"></i>3.33</span>
                 </div>
                 <div class="product-image">
@@ -86,7 +94,14 @@ const addToCart = (productId) => {
     });
 
     if (checkItem !== -1) {
-        alert("item already added")
+        Swal.fire({
+            position: "bottom-end",
+            toast: true,
+            icon: "warning",
+            title: "Item already added to cart.",
+            showConfirmButton: false,
+            timer: 2500,
+        });
         return;
     }
     searchedProduct.quantity = 1;
@@ -98,7 +113,7 @@ const addToCart = (productId) => {
         toast: true,
         icon: "success",
         title: "Item added to cart.",
-        showConfirmButton: true,
+        showConfirmButton: false,
         timer: 2500
     });
     
