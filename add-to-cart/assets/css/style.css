@@ -11,7 +11,7 @@ header{
     position: sticky;
     top: 0;
     width: 100%;
-    z-index: 999;   
+    z-index: 99;   
 }
 ul li{
     font-size: 18px;
@@ -37,7 +37,7 @@ ul li a{
 }
 .main-banner-content{
     position: relative;
-    z-index: 99;
+    z-index: 9;
     max-width: 800px;
     margin: auto;
     height: 91vh !important;
@@ -129,5 +129,24 @@ h1{
     .cart-image img{
         width: 100%;
     }
+   
+}
+
+.underline ul li a{
+    display: inline-block;
+    transition: 0.2s all linear;
+}
+
+.underline ul li a:hover{
+    color: #00000075;
+   
+}
+.upRight ul li a{
+    display: inline-block;
+    transition: 0.2s all linear;
+}
+.upRight ul li a:hover{
+    color: #00000075;
+    transform: translate(5px);
    
 }

@@ -21,12 +21,12 @@ const updateQuantity = (idx, value) => {
     if (cartArray[idx].quantity < 1) {
         removeItem(idx)
         checkOut.innerHTML = "";
-        
+
     } else {
         saveToLocal()
     }
     displayCart()
-    
+
 }
 const displayCart = () => {
     let subTotal = 0;
@@ -73,7 +73,7 @@ const displayCart = () => {
                             </div>
                             </div>
                             <div class="col-md-2 col-4">
-                            <div class="d-flex align-items-center justify-content-between h-100 gap-4">
+                            <div class="d-flex align-items-center justify-content-between h-100 gap-xl-4 gap-2">
                             <span class="fs-7 text-dark fw-semibold">$${(totalPrice.toFixed(2))}</span>
                             <button type="button" class="border-0  fw-bold button" onclick="removeItem(${idx})"><i class="bi bi-x"></i></button>
                             </div>
@@ -108,13 +108,13 @@ const displayCart = () => {
         deliveryOffer.innerHTML = `<i class="bi bi-box"></i>
         Your order qualifies for free shipping!`
         offerUpdate.classList.add("back-and-border")
-        
+
     } else {
         deliveryOffer.innerHTML = `<i class="bi bi-box me-2"></i>
         Add $${(500 - subTotal).toFixed(2)} to cart and get free shipping !
         `
         offerUpdate.classList.remove("back-and-border")
-        
+
     }
 }
 
