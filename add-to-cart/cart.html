@@ -22,8 +22,8 @@
     <header class="py-3">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center gap-5">
-                <div class="logo">
-                    <img src="./assets/images/logo-black.png" alt="" width="100">
+                <div class="logo cursor-pointer">
+                    <img src="./assets/images/logo-black.png" alt="" width="100" onclick='window.location = "./index.html"'>
                 </div>
                 <div class="menus underline d-lg-flex d-none">
                     <ul class="d-flex gap-4 p-0 m-0">
@@ -130,7 +130,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="border-bottom border-top py-3" id="show-cart"></div>
+                    <div class=" border-top py-3" id="show-cart"></div>
+                    
+                    <div class="text-end floating-btn">
+                        <button onclick="removeAll()">Clear all</button>
+                 </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-12">
                     <div class="checkOut border p-3 border-radius-10" id="check-out">
@@ -141,7 +145,7 @@
         </div>
     </section>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script>
     <script src="./assets/js/cart.js"></script>
 </body>
 

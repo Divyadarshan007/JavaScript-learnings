@@ -85,6 +85,29 @@ let addProduct = document.getElementById("addProduct")
 let cartProduct = JSON.parse(localStorage.getItem("cart")) || [];
 
 const addToCart = (productId) => {
+    const burst = new mojs.Burst({
+        left: 0, top: 0,
+        radius:   { 4: 19 },
+        angle:    45,
+        children: {
+          shape:        'line',
+          radius:       3,
+          scale:        1,
+          stroke:       '#fff',
+          strokeDasharray: '100%',
+          strokeDashoffset: { '-100%' : '100%' },
+          duration:     700,
+          easing:       'quad.out',
+        }
+      });
+      
+      document.addEventListener( 'click', function (e) {
+        burst
+          .tune({ x: e.pageX, y: e.pageY })
+          .replay();
+      } );
+      
+    
     let searchedProduct = allProducts.find((item) => {
         return item.id == productId
     })
@@ -116,6 +139,23 @@ const addToCart = (productId) => {
         showConfirmButton: false,
         timer: 2500
     });
-    
+   
 }
 productCount.innerHTML = cartProduct.length;
+
+$(function() {  
+    $('.btn-11')
+      .on('mouseenter', function(e) {
+              var parentOffset = $(this).offset(),
+                relX = e.pageX - parentOffset.left,
+                relY = e.pageY - parentOffset.top;
+              $(this).find('span').css({top:relY, left:relX})
+      })
+      .on('mouseout', function(e) {
+              var parentOffset = $(this).offset(),
+                relX = e.pageX - parentOffset.left,
+                relY = e.pageY - parentOffset.top;
+          $(this).find('span').css({top:relY, left:relX})
+      });
+  });
+  

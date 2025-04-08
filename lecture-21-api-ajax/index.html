@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Premium Profile Card -->
+        <div class="profile-card">
+            <div class="card-content">
+                <!-- Avatar Circle -->
+                <div class="avatar-wrapper">
+                    <div class="avatar">
+                        <div class="avatar-inner"></div>
+                        <div class="avatar-glow"></div>
+                        <div class="avatar-border"></div>
+                        <img src="" alt="" id="image">
+                    </div>
+                </div>
+
+                <!-- Profile Info -->
+                <div class="profile-info">
+                    <h2 class="name" id="userName">Sarah Anderson</h2>
+                    <p class="title" id="title">Senior Product Designer</p>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-value" id="stat-value">1.2k</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="stat-follower">8.5k</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="stat-following">4.7k</span>
+                            <span class="stat-label">Following</span>
+                        </div>
+                    </div>
+
+                    <div class="bio">
+                        Creative designer with 5+ years of experience in digital product design and brand identity.
+                    </div>
+
+                    <div class="skills">
+                        <span class="skill">UI/UX</span>
+                        <span class="skill">Branding</span>
+                        <span class="skill">Motion</span>
+                    </div>
+
+                    <div class="actions">
+                        <button class="action-btn primary">
+                            <span>Follow</span>
+                            <div class="btn-effect"></div>
+                        </button>
+                        <button class="action-btn secondary">
+                            <span>Message</span>
+                            <div class="btn-effect"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Effects -->
+            <div class="card-shine"></div>
+            <div class="card-border"></div>
+            <div class="card-glow"></div>
+        </div>
+    </div>
+
+
+    <script>
+        let userName = document.getElementById("userName");
+        let title = document.getElementById("title")
+        let image = document.getElementById("image")
+        let statValue = document.getElementById("stat-value")
+        let statFollower = document.getElementById("stat-follower")
+        let statFollowing = document.getElementById("stat-following")
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://api.github.com/users/divyadarshan007")
+
+        xhr.onload = ()=>{
+            let userData = JSON.parse(xhr.responseText);
+            userName.innerHTML = userData.name
+            title.innerHTML = userData.bio
+            image.src = userData.avatar_url
+            statValue.innerHTML = userData.public_repos;
+            statFollower.innerHTML = userData.followers
+            statFollowing.innerHTML = userData.following
+        }
+
+         xhr.send()
+        
+    </script>
+</body>
+</html>

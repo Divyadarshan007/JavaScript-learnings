@@ -150,3 +150,38 @@ h1{
     transform: translate(5px);
    
 }
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.viewBtn button{
+    transition: 0.3s all linear;
+}
+.viewBtn button a{
+    transition: 0.3s all linear;
+
+}
+.viewBtn button:hover{
+    background-color: #000;
+}
+.viewBtn button:hover a{
+    color: #fff !important;
+}
+
+.floating-btn button{
+    position: relative;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+}
+.floating-btn button::before{
+    content: '';
+    position: absolute;
+    top: -75%;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: #000;
+}

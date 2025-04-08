@@ -17,6 +17,27 @@ const removeItem = (idx) => {
     productCount.innerHTML = cartArray.length;
 }
 const updateQuantity = (idx, value) => {
+    const burst = new mojs.Burst({
+        left: 0, top: 0,
+        radius:   { 4: 19 },
+        angle:    45,
+        children: {
+          shape:        'line',
+          radius:       3,
+          scale:        1,
+          stroke:       '#000',
+          strokeDasharray: '100%',
+          strokeDashoffset: { '-100%' : '100%' },
+          duration:     700,
+          easing:       'quad.out',
+        }
+      });
+      
+      document.addEventListener( 'click', function (e) {
+        burst
+          .tune({ x: e.pageX, y: e.pageY })
+          .replay();
+      } );
     cartArray[idx].quantity += value;
     if (cartArray[idx].quantity < 1) {
         removeItem(idx)
@@ -54,7 +75,6 @@ const displayCart = () => {
                </div>
                             <div class="col-md-5 col-7">
                                 <div class="d-flex h-100 align-items-center justify-content-md-start justify-content-center">
-                                    
                                     <h3 class="m-0 font-14">${item.name}</h3>
                                 </div>
                             </div>
@@ -120,3 +140,8 @@ const displayCart = () => {
 
 displayCart()
 productCount.innerHTML = cartArray.length;
+function removeAll(){
+    cartArray = [];
+    saveToLocal();
+    displayCart();
+}
