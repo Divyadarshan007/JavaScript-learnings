@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    
     <div class="p-4">
         <label for="">Enter Pokemon name</label>
         <br>
@@ -20,7 +19,6 @@
     <div>
         <img src="" alt="" id="img" width="200"> 
     </div>
-
     <div>
         <span id="jokeSetup"></span>
         <br>
@@ -45,7 +43,6 @@ submitBtn.addEventListener("click", ()=>{
     fetch(URL).then((res)=>{
         return res.json()
     }).then((res)=>{
-       
         let pokeImg = res.sprites.front_default;
         img.src = pokeImg;
     })
