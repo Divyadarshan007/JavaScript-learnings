@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Tracker</title>
+    <link rel="icon" href="./assets/images/doc-post.png">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+<body>
+
+    <header>
+        <div class="container2">
+            <div class="d-flex align-items-center justify-content-sm-between justify-content-center">
+                <div class="d-sm-flex d-none">
+                    <h2 class="text-white m-0">COVID TRACKER</h2>
+                </div>
+
+                <form action="">
+                    <input type="text" placeholder="Enter City" id="input">
+                    <button><i class="bi bi-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <section class="skewed-section">
+        <div class="skewed-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+                        <div class="p-4">
+                            <h1 class="text-white">Gujarat</h1>
+                        </div>
+                        <div class="cases">
+                            <h3 class="text-white">Total Cases :</h3>
+                            <p class="shadow" id="totalCase">1224657</p>
+                        </div>
+                        <div class="cases">
+                            <h3 class="text-white">Recovered :</h3>
+                            <p class="shadow" id="recovered">1213502</p>
+                        </div>
+                        <div class="cases">
+                            <h3 class="text-white ">Deaths :</h3>
+                            <p class="shadow" id="death">10944</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="d-lg-flex d-none justify-content-center">
+                        <img src="./assets/images/doc-post.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
