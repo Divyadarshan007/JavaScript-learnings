@@ -138,10 +138,11 @@ const displayCart = () => {
     }
 }
 
-displayCart()
-productCount.innerHTML = cartArray.length;
 function removeAll(){
     cartArray = [];
     saveToLocal();
     displayCart();
+    productCount.innerHTML = cartArray.length;
 }
+displayCart()
+productCount.innerHTML = cartArray.length;
