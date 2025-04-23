@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.card {
+  position: relative;
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  width: 300px;
+  height: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.animate {
+  animation: zoomin 0.5s linear;
+  animation-fill-mode: forwards;
+}
+
+.card {
+  background-size: cover;
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes zoomin {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+
+  }
+}
+
+.padding30 {
+  padding: 30px 0;
+}
