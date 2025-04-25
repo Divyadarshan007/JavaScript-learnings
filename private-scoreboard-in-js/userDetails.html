@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+        <section class="bg-color">
+            <div class="container d-flex flex-column justify-content-center vh-100 align-items-center">
+                <div class="py-3">
+                    <h2>Enter Your Details</h2>
+                </div>
+              <form action="">
+                <div class="py-2">
+                    <label for="">Enter Name:</label>
+                    <input type="text" class="form-control" id="userName" placeholder="Name" required>
+                </div>
+                <div class="py-2">
+                    <label for="">Enter Score:</label>
+                    <input class="form-control" type="text" id="userScore" placeholder="Score" required>
+                </div>
+                <div class="py-2">
+                    <label for="">Enter date:</label>
+                    <input type="date" class="form-control" id="date" required>
+                </div>
+                <div class="pt-2 text-center">
+                    <button class="btn btn-dark" id="submitBtn">Submit</button>
+                </div>
+
+              </form>
+            </div>
+        </section>
+    <script src="./assets/js/script.js"></script>  
+    <script>
+        let userScore = JSON.parse(localStorage.getItem("score")) || [];
+
+        let name = document.getElementById("userName");
+        let score = document.getElementById("userScore");
+        let date = document.getElementById("date")
+        let submitBtn = document.getElementById("submitBtn")
+
+        submitBtn.addEventListener("click",(e)=>{
+            e.preventDefault()
+            let obj = {
+                name: (name.value).trim(),
+                score: (score.value).trim(),
+                date: (date.value).trim()
+            }
+
+            userScore.push(obj);
+            saveToLocalStorage(userScore);
+            window.location.href="./loginPage.html"
+        })
+        const saveToLocalStorage = (arr)=>{
+            localStorage.setItem("score", JSON.stringify(arr))
+        }
+    </script>  
+</body>
+</html>

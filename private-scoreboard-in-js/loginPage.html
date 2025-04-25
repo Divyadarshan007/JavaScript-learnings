@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <section class="bg-color">
+        <div class="container d-flex justify-content-center align-items-center vh-100">
+            <div class=" ">
+                <div class="login">
+                    <form action="">
+                        <h1 class="text-center mb-3">Welcome back</h1>
+                        <p class="text-center">
+                            Enter your account details
+                        </p>
+                        <form action="">
+                            <div>
+                                <div class="py-2">
+                                    <input type="text" class="form-control" placeholder="Enter email id" id="emailInf"
+                                        required>
+                                </div>
+                                <div class="py-2">
+                                    <input type="text" class="form-control" placeholder="Enter Password"
+                                        id="passwordInf" required>
+                                </div>
+                                <div class="text-center">
+                                    <button id="signIn" class="btn btn-dark">Sign in</button>
+                                </div>
+                            </div>
+                        </form>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        let userData = JSON.parse(localStorage.getItem("user")) || [];
+        let signIn = document.getElementById("signIn");
+        let passwordInf = document.getElementById("passwordInf");
+        let emailInf = document.getElementById("emailInf")
+
+        signIn.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (passwordInf.value.trim() != "" && emailInf.value.trim() != "") {
+                userData.forEach((item) => {
+                    if ((item.emailInfo === emailInf.value) && (item.passwordInfo === passwordInf.value)) {
+                        window.location.href = "./studentDetails.html"
+                    } else {
+                        Swal.fire({
+                            title: "",
+                            text: "Email and Password does not match",
+                            icon: "error"
+                        });
+                    }
+                })
+            }else{
+                Swal.fire({
+                            title: "",
+                            text: "Enter all details",
+                            icon: "error"
+                        });
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

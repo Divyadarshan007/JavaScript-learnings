@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <section class="py-5">
+        <div class="container">
+            <h1 class="display-5 text-center pb-3 fw-bold text-decoration-underline">User Details</h1>
+            <div>
+                <input type="text" placeholder="search By name" id="searchName" >
+                <input type="text" placeholder="filter by marks" id="filterMarks" >
+            </div>
+            <table class="table table-dark table-responsive text-center">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="tableDetails">
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <script src="./assets/js/script.js"></script>
+    <script>
+        let userScore = JSON.parse(localStorage.getItem("score")) || [];
+        let tableDetails = document.getElementById("tableDetails");
+        let searchName = document.getElementById("searchName");
+        let filterMarks = document.getElementById("filterMarks")
+
+
+        const displayUser = () => {
+            tableDetails.innerHTML = ''
+            userScore.forEach((item) => {
+                tableDetails.innerHTML += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.score}</td>
+                        <td>${item.date}</td>
+                    </tr>
+            `
+            })
+        }
+        displayUser();
+
+        searchName.addEventListener("input", () => {
+            let findedUser = userScore.find((item) => {
+                return (item.name).toLowerCase() == (searchName.value).toLowerCase();
+            })
+
+            if (searchName.value !== "") {
+                tableDetails.innerHTML = `
+                    <tr>
+                        <td>${findedUser.name}</td>
+                        <td>${findedUser.score}</td>
+                        <td>${findedUser.date}</td>
+                    </tr>
+            `
+            } else {
+                displayUser();
+            }
+
+        })
+
+        filterMarks.addEventListener("input", () => {
+            let filteredMarks = userScore.filter(item => item.score >= filterMarks.value)
+         
+            
+            if (filterMarks.value !== "") {
+                tableDetails.innerHTML = ''
+                    filteredMarks.forEach((item) => {
+                        tableDetails.innerHTML += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.score}</td>
+                        <td>${item.date}</td>
+                    </tr>
+            `
+                    })
+            } else {
+                displayUser();
+            }
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
