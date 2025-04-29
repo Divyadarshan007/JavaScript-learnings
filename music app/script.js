@@ -1,15 +1,15 @@
 let songArr = [
     {
+        songName: "You And Me",
+        songUrl: "./songs/You-and-me.mp3"
+    },
+    {
         songName: "Qatal",
         songUrl: "./songs/Qatal.mp3"
     },
     {
         songName: "Safety Off",
         songUrl: "./songs/Safety-Off.mp3"
-    },
-    {
-        songName: "You And Me",
-        songUrl: "./songs/You-and-me.mp3"
     },
     {
         songName: "Excuses",
@@ -38,6 +38,7 @@ let second = document.querySelector(".sec");
 let timer;
 let rightBtn = document.querySelector(".right-btn");
 let leftBtn = document.querySelector(".left-btn");
+let songIdx = 0;
 
 const playSong = () => {
     song.play();
@@ -45,8 +46,14 @@ const playSong = () => {
     playBtn.querySelector("span").querySelector("i").classList.remove("bi-play");
     playBtn.querySelector("span").querySelector("i").classList.add("bi-pause");
     image[0].style.animationPlayState = "running";
-    totalDuration.innerHTML = `${Math.floor((song.duration % 3600) / 60)}:${Math.floor((song.duration % 3600) % 60)}`
+   
 }
+
+
+song.addEventListener("loadedmetadata",()=>{
+    totalDuration.innerHTML = `${Math.floor((song.duration % 3600) / 60)}:${Math.floor((song.duration % 3600) % 60)}`
+    slider.max = song.duration
+})
 
 const pauseSong = () => {
     song.pause();
@@ -56,13 +63,14 @@ const pauseSong = () => {
 }
 playBtn.querySelector("span").addEventListener("click", () => {
     if (playBtn.querySelector("span").querySelector("i").classList.contains("bi-play")) {
+        song.src = `${songArr[songIdx].songUrl}`
         playSong();
     } else {
         pauseSong();
     }
 });
 
-let songIdx = 0;
+
 const nextSong = () => {
     songIdx = (songIdx + 1) % songArr.length;
     song.src = `${songArr[songIdx].songUrl}`
@@ -82,9 +90,9 @@ leftBtn.querySelector("span").addEventListener("click", ()=>{
     prevSong();
 })
 
-slider.max = song.duration
 const playTheSong = () => {
-    setInterval(() => {
+    clearInterval(timer);
+    timer = setInterval(() => {
         slider.value = song.currentTime;
         let min = Math.floor((song.currentTime % 3600) / 60);
         let sec = Math.floor((song.currentTime % 3600) % 60);
@@ -93,7 +101,8 @@ const playTheSong = () => {
         minute.innerHTML = min;
         second.innerHTML = sec;
 
-        if (song.currentTime == song.duration) {
+        if (song.ended) {
+            clearInterval(timer)
             slider.value = 0;
             playBtn.querySelector("span").querySelector("i").classList.remove("bi-pause");
             playBtn.querySelector("span").querySelector("i").classList.add("bi-play");
@@ -106,7 +115,6 @@ slider.onchange = function () {
     song.play();
     image[0].style.animationPlayState = "running";
     song.currentTime = slider.value;
-    songDurax = slider.value;
     playBtn.querySelector("span").querySelector("i").classList.remove("bi-play");
     playBtn.querySelector("span").querySelector("i").classList.add("bi-pause");
 
