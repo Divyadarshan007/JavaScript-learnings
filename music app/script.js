@@ -18,6 +18,10 @@ let songArr = [
     {
         songName: "Softly",
         songUrl: "./songs/Softly.mp3"
+    },
+    {
+        songName: "saware",
+        songUrl: "./songs/saware.mp3"
     }
 ]
 
