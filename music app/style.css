@@ -1,22 +1,23 @@
 .width-300 {
     background-color: #FFF8F8;
     width: 300px;
-    padding: 20px;
+    padding: 40px 30px;
+    background: url('./songs/Excuses.mp3');
 }
+
 
 .image {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     overflow: hidden;
-
 }
 
 .image img {
     object-fit: cover;
     height: 100%;
     animation: rotate 10s linear infinite;
-   animation-play-state: paused;
+    animation-play-state: paused;
 }
 
 
