@@ -45,3 +45,7 @@ btn.forEach((button) => {
         filterCard(name);
     })      
 })
+
+export let contain = ()=>{
+    console.log("hello")
+};

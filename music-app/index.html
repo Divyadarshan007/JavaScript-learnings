@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify Clone</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <div class="container2">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2 class="position-fixed top-0">My Songs</h2>
+      <ul class="song-list m-0 p-0"></ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+      <div class="topbar">
+        <h2>Welcome back</h2>
+        <div class="profile">User</div>
+      </div>
+
+      <h3 style="margin-bottom: 15px;">Your Playlists</h3>
+      <div class="playlists gy-4 row">
+        <div class="col-3">
+          <div class="card2" data-name="tophit">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4" alt="">
+            </div>
+            <h4>Top Hits</h4>
+            <p>Today's top hits for you</p>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card2" data-name="lofisong">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="">
+            </div>
+            <h4>Lo-fi Beats</h4>
+            <p>Chill and relax</p>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card2" data-name="indiesong">
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1619983081593-e2ba5b543168?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="">
+            </div>
+            <h4>Indie India</h4>
+            <p>Best Indie picks</p>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card2" data-name="workout">
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1677741447985-da1d90c00742?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="">
+            </div>
+            <h4>Workout</h4>
+            <p>Pumped-up music</p>
+          </div>
+        </div>
+        <div class="col-3" data-name="special">
+          <div class="card2" data-name="special">
+            <div class="card-image">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStcFF8-taVxwz4IrLGKweV823E0ZWm2J6DaQ&s" alt="">
+            </div>
+            <h4>90's Special</h4>
+            <p>Nostalgic</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Player -->
+  <div class="player">
+    <div class="row align-items-center ">
+      <div class="col-4 ">
+        <div class="d-flex justify-content-start">
+          <div class="song-image ">
+            <img src="https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228" alt="current song" />
+            <div>
+              <div id="song-name">Qatal</div>
+              <div style="font-size: 12px; color: gray;">Artist</div>
+              <audio src="" class="song"></audio>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="">
+          <div class="progress-bar py-3 pt-4">
+            <input type="range" value="0" min="1" width="100%" class="slider">
+            <div class="d-flex py-2 justify-content-between">
+              <span class="current-time"><span class="min fw-semibold">00</span>:<span
+                  class="sec fw-semibold">00</span></span>
+              <span class="duration fw-semibold">00:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="d-flex justify-content-end">
+          <div class="controls d-flex">
+            <div class="left-btn">
+              <span>
+                <i class="bi bi-skip-start-fill"></i>
+              </span>
+            </div>
+            <div class="play-btn">
+              <span>
+                <i class="bi bi-play-circle-fill"></i>
+              </span>
+            </div>
+            <div class="right-btn">
+              <span>
+                <i class="bi bi-skip-end-fill"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
