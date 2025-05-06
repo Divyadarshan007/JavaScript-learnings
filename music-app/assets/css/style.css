@@ -14,6 +14,7 @@
     display: flex;
     flex: 1;
     overflow: hidden;
+    
   }
 
   /* Sidebar */
@@ -170,6 +171,7 @@
     justify-content: space-between;
     align-items: center; */
     padding: 0 20px;
+
   }
 
   .player .song-image {
