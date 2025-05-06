@@ -13,13 +13,26 @@
 <body>
   <div class="container2">
     <!-- Sidebar -->
-    <div class="sidebar">
-      <h2 class="position-fixed top-0">My Songs</h2>
-      <ul class="song-list m-0 p-0"></ul>
+    <button class="btn btn-primary d-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
+      aria-controls="staticBackdrop">
+      Toggle static offcanvas
+    </button>
+    
+    <div class="offcanvas offcanvas-start bg-black" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
+    aria-labelledby="staticBackdropLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title text-success" id="staticBackdropLabel">Songs </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-
-    <!-- Main Content -->
-    <div class="main">
+    <div class="offcanvas-body">
+      <div>
+        <ul class="song-list m-0 p-0"></ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="main">
       <div class="topbar">
         <h2>Welcome back</h2>
         <div class="profile">User</div>
@@ -27,17 +40,17 @@
 
       <h3 style="margin-bottom: 15px;">Your Playlists</h3>
       <div class="playlists gy-4 row">
-        <div class="col-3">
-          <div class="card2" data-name="tophit">
+        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+          <div class="card2" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" data-name="myplaylist">
             <div class="card-image">
               <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4" alt="">
             </div>
-            <h4>Top Hits</h4>
-            <p>Today's top hits for you</p>
+            <h4>My Playlist</h4>
+            <p>A curated mix of my favorite tracks</p>
           </div>
         </div>
-        <div class="col-3">
-          <div class="card2" data-name="lofisong">
+        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+          <div class="card2" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" data-name="lofisong">
             <div class="card-image">
               <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="">
             </div>
@@ -45,8 +58,8 @@
             <p>Chill and relax</p>
           </div>
         </div>
-        <div class="col-3">
-          <div class="card2" data-name="indiesong">
+        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+          <div class="card2" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" data-name="indiesong">
             <div class="card-image">
               <img
                 src="https://images.unsplash.com/photo-1619983081593-e2ba5b543168?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -56,8 +69,8 @@
             <p>Best Indie picks</p>
           </div>
         </div>
-        <div class="col-3">
-          <div class="card2" data-name="workout">
+        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+          <div class="card2" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" data-name="workout">
             <div class="card-image">
               <img
                 src="https://images.unsplash.com/photo-1677741447985-da1d90c00742?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -67,12 +80,13 @@
             <p>Pumped-up music</p>
           </div>
         </div>
-        <div class="col-3" data-name="special">
-          <div class="card2" data-name="special">
+        <div class="col-xl-3  col-lg-4 col-sm-6 col-12" >
+          <div class="card2" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" data-name="special">
             <div class="card-image">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStcFF8-taVxwz4IrLGKweV823E0ZWm2J6DaQ&s" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStcFF8-taVxwz4IrLGKweV823E0ZWm2J6DaQ&s"
+                alt="">
             </div>
-            <h4>90's Special</h4>
+            <h4>20's Special</h4>
             <p>Nostalgic</p>
           </div>
         </div>
@@ -82,20 +96,20 @@
 
   <!-- Footer Player -->
   <div class="player">
-    <div class="row align-items-center ">
-      <div class="col-4 ">
+    <div class="row align-items-center">
+      <div class="col-md-4 col-6 order-1">
         <div class="d-flex justify-content-start">
           <div class="song-image ">
             <img src="https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228" alt="current song" />
             <div>
-              <div id="song-name">Qatal</div>
+              <div id="song-name" class=" fs-6">Aa Jao Meri Tamanna</div>
               <div style="font-size: 12px; color: gray;">Artist</div>
               <audio src="" class="song"></audio>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-md-4 col-12 order-md-2 order-3">
         <div class="">
           <div class="progress-bar py-3 pt-4">
             <input type="range" value="0" min="1" width="100%" class="slider">
@@ -107,7 +121,7 @@
           </div>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-md-4 col-6 order-md-3 order-2 ">
         <div class="d-flex justify-content-end">
           <div class="controls d-flex">
             <div class="left-btn">
@@ -130,8 +144,7 @@
       </div>
     </div>
   </div>
-
+  <script src="./assets/js/bootstrap.bundle.min.js"></script>  
   <script src="./assets/js/script.js"></script>
 </body>
-
 </html>

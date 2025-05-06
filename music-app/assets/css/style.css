@@ -214,9 +214,9 @@
       padding: 10px;
     }
 
-    .playlists {
+    /* .playlists {
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    }
+    } */
   }
 
 

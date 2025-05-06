@@ -1,33 +1,53 @@
 let songArr = [
     {
-        id: "tophit",
-        songName: "Qatal",
-        songUrl: "./assets/songs/Qatal.mp3"
+        id: "myplaylist",
+        songName: "Aa Jao Meri Tamanna",
+        songUrl: "./assets/songs/Aa-jao-meri-tamanna.m4a"
     },
     {
-        id: "tophit",
-        songName: "Safety Off",
-        songUrl: "./assets/songs/Safety-Off.mp3"
+        id: "myplaylist",
+        songName: "Beete Lamhe",
+        songUrl: "./assets/songs/Beete-Lamhe.m4a"
     },
     {
-        id: "tophit",
+        id: "myplaylist",
         songName: "You And Me",
         songUrl: "./assets/songs/You-and-me.mp3"
     },
     {
-        id: "tophit",
-        songName: "Excuses",
-        songUrl: "./assets/songs/Excuses.mp3"
+        id: "myplaylist",
+        songName: "Dil Ko Tumse Pyaar Hua",
+        songUrl: "./assets/songs/Dil-ko-tumse-pyaar-hua.m4a"
     },
     {
-        id: "tophit",
-        songName: "Softly",
-        songUrl: "./assets/songs/Softly.mp3"
+        id: "myplaylist",
+        songName: "Ek Din Teri Raahon",
+        songUrl: "./assets/songs/Ek-din-teri-raahon.m4a"
     },
     {
-        id: "tophit",
+        id: "myplaylist",
         songName: "Saware",
         songUrl: "./assets/songs/saware.mp3"
+    },
+    {
+        id: "myplaylist",
+        songName: "Guzaarish",
+        songUrl: "./assets/songs/Guzaarish.m4a"
+    },
+    {
+        id: "myplaylist",
+        songName: "Labon ko",
+        songUrl: "./assets/songs/Labon-ko.m4a"
+    },
+    {
+        id: "myplaylist",
+        songName: "Soniye",
+        songUrl: "./assets/songs/Soniye.m4a"
+    },
+    {
+        id: "myplaylist",
+        songName: "Yoon Shabnami",
+        songUrl: "./assets/songs/Yoon-Shabnami.m4a"
     },
     {
         id: "lofisong",
@@ -198,7 +218,7 @@ const playSong = () => {
 
 }
 song.addEventListener("loadedmetadata", () => {
-    totalDuration.innerHTML = `${Math.floor((song.duration % 3600) / 60)}:${Math.floor((song.duration % 3600) % 60)}`
+    totalDuration.innerHTML = `${(Math.floor((song.duration % 3600) / 60)).toString().padStart(2, "0")}:${(Math.floor((song.duration % 3600) % 60)).toString().padStart(2, "0")}`
     slider.max = song.duration;
     songDuration = song.duration;
 })
@@ -217,8 +237,6 @@ playBtn.querySelector("span").addEventListener("click", () => {
 });
 
 window.addEventListener("keyup", (e) => {
-    console.log(e);
-    
     if (e.key == " " && playBtn.querySelector("span").querySelector("i").classList.contains("bi-play-circle-fill")) {
         playSong()
     } else {
@@ -257,6 +275,7 @@ const playTheSong = () => {
             slider.value = 0;
             playBtn.querySelector("span").querySelector("i").classList.remove("bi-pause-circle-fill");
             playBtn.querySelector("span").querySelector("i").classList.add("bi-play-circle-fill");
+            nextSong();
         }
     }, 1000)
 }
